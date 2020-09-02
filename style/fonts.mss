@@ -143,10 +143,11 @@ A regular style.
 
                 "Noto Emoji Regular",
 
-                "DejaVu Sans Book",
+                "DejaVu Sans Book";
 
-                "HanaMinA Regular", "HanaMinB Regular",
-                "Unifont Medium", "unifont Medium", "Unifont Upper Medium";
+                /* These fallbacks generate warnings on Fedora */
+                /* "HanaMinA Regular", "HanaMinB Regular",
+                "Unifont Medium", "unifont Medium", "Unifont Upper Medium"; */
 
 /*
 A bold style is available for almost all scripts. Bold text is heavier than
