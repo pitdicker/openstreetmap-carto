@@ -48,7 +48,6 @@ Stylesheet:
   - style/ferry-routes.mss
   - style/aerialways.mss
   - style/admin.mss
-  - style/addressing.mss
 Layer:
   - id: landcover-low-zoom
     geometry: polygon
