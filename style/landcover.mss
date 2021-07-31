@@ -560,7 +560,7 @@
     [zoom >= 5] {
       polygon-fill: @grass;
       [feature = 'wetland_saltmarsh'][zoom >= 13] {
-        polygon-pattern-file: url('symbols/salt-dots-2.png');
+        polygon-pattern-file: url('symbols/landcover/salt-dots.svg');
         polygon-pattern-alignment: global;
         [way_pixels >= 4]  { polygon-pattern-gamma: 0.75; }
         [way_pixels >= 64] { polygon-pattern-gamma: 0.3;  }
