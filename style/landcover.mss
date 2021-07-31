@@ -731,7 +731,7 @@
   }
 
   [int_wetland != null][zoom >= 10] {
-    polygon-pattern-file: url('symbols/wetland.png');
+    polygon-pattern-file: url('symbols/landcover/wetland.svg');
     polygon-pattern-alignment: global;
   }
   [natural = 'reef'][zoom >= 10] {
