@@ -806,7 +806,7 @@
   [landuse = 'military'][zoom >= 8][way_pixels > 900],
   [landuse = 'military'][zoom >= 13],
   [military = 'danger_area'][zoom >= 9] {
-    polygon-pattern-file: url('symbols/military_red_hatch.png');
+    polygon-pattern-file: url('symbols/landcover/military_red_hatch.svg');
     polygon-pattern-alignment: global;
     line-color: @military;
     line-opacity: 0.24;
