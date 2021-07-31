@@ -814,7 +814,7 @@
     line-offset: -0.5;
     [zoom >= 15] {
       [military = 'danger_area'][zoom >= 9] {
-        polygon-pattern-file: url('symbols/danger_red_hatch.png');
+        polygon-pattern-file: url('symbols/landcover/danger_red_hatch.svg');
         line-opacity: 0.2;
       }
       line-width: 2;
