@@ -30,9 +30,9 @@ BEGIN {
 	} else if (/.+/) {
 	    points[i] = $0
 		if (length(path) < 7) {
-			printf("M%s%s", points[i], path)
+			printf("M%s %s", points[i], path)
 		} else {
-			printf("  <path d=\"M%s%s\" %s/>\n", points[i], path, style)
+			printf("  <path d=\"M%s %s\" %s/>\n", points[i], path, style)
 		}
 		i++
 	}
