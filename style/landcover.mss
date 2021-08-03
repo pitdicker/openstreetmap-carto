@@ -760,7 +760,7 @@
     [int_wetland = 'bog'],
     [int_wetland = 'fen'],
     [int_wetland = 'string_bog'] {
-      polygon-pattern-file: url('symbols/wetland_bog.png');
+      polygon-pattern-file: url('symbols/landcover/wetland_bog.svg');
       polygon-pattern-alignment: global;
     }
     [landuse = 'salt_pond'] {
