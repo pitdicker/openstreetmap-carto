@@ -22,13 +22,39 @@ BEGIN {
 		}
 	} else if (/^Style: /) {
 		style = substr($0, 8)
+	} else if (/^Casing: /) {
+		n = split(substr($0, 9), parts, " ")
+		y = parts[1] + 0
+		casing["top"] = y
+		casing["left"] = 1000
+		casing["right"] = -1000
+		for (i=2; i<=n; i++) {
+			m = split(parts[i], left_right, "|")
+			if (m != 2) print "ERROR"
+			left = left_right[1]
+			right = left_right[2]
+			if (left < casing["left"])
+				casing["left"] = left
+			if (right > casing["right"])
+				casing["right"] = right
+			casing[y, "left"] = left
+			casing[y, "right"] = right
+			y++
+		}
+		casing["bottom"] = y - 1
+		
+		printf("casing bbox. top: %d right: %d bottom: %d left: %d coords:", casing["top"], casing["right"], casing["bottom"], casing["left"])
+		for (i=casing["top"]; i<=casing["bottom"]; i++) {
+			printf(" %g|%g", casing[i, "left"], casing[i, "right"])
+		}
+		print ""
 	} else if (/^Background: /) {
 		background = substr($0, 13)
 		printf("  <rect width=\"%i\" height=\"%i\" fill=\"%s\"/>\n", size, size, background)
 	} else if (/^jsdotpattern: /) {
 		#ignore
 	} else if (/.+/) {
-	    points[i] = $0
+		points[i] = $0
 		if (length(path) < 7) {
 			printf("M%s %s", points[i], path)
 		} else {
