@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-  <path d="
+<svg version="1.1" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path stroke="#4aa5fa" d="
 M11,0.5 h7 m25,0 h7 m16,0 h7 m16,0 h7 m27,0 h7
 M137,1.5 h7 m57,0 h7 m14,0 h7
 M189,2.5 h7 m44,0 h7
@@ -255,5 +255,5 @@ M65,251.5 h7 m9,0 h7 m25,0 h7 m84,0 h7
 M34,252.5 h7 m146,0 h7 m24,0 h7
 M2,253.5 h7 m42,0 h7 m40,0 h7 m25,0 h7 m33,0 h7
 M74,254.5 h7 m66,0 h7 m5,0 h7 m67,0 h7
-M23,255.5 h7 m74,0 h7 m67,0 h7 m25,0 h7 m32,0 h7" stroke="#4aa5fa"/>
+M23,255.5 h7 m74,0 h7 m67,0 h7 m25,0 h7 m32,0 h7"/>
 </svg>

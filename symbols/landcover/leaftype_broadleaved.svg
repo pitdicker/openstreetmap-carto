@@ -1,70 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-  <path d="M245,-12 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M187,-10 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M151,-8 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M113,4 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M47,6 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M10,11 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M73,19 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M153,44 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M71,48 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M7,49 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M179,53 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M32,68 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M98,69 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M204,75 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M161,79 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M71,82 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M45,101 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M143,150 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M206,174 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M84,175 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M143,185 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M231,205 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M42,220 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M104,234 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M245,244 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M187,246 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M151,248 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M212,12 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M175,18 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M134,22 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M238,28 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M42,39 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M110,41 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M217,46 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M131,71 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M234,85 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M8,86 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M183,100 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M107,101 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M143,107 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M213,110 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M79,111 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M15,113 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M242,123 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M165,125 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M111,132 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M36,133 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M199,139 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M79,145 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M225,149 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M8,150 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M51,156 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M173,160 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M114,164 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M23,176 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M248,180 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M174,189 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M54,194 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M110,196 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M12,207 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M200,208 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M76,211 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M136,214 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M166,223 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M215,238 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M19,240 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
-  <path d="M78,242 m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7" stroke-width="1" stroke="#6b8d5e" fill="none"/>
+<svg version="1.1" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="leaftype_broadleaved1" stroke-width="1" stroke="#6b8d5e" fill="none" d="m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7"/>
+  </defs>
+  <use x="245" y="-12" xlink:href="#leaftype_broadleaved1"/>
+  <use x="187" y="-10" xlink:href="#leaftype_broadleaved1"/>
+  <use x="151" y="-8" xlink:href="#leaftype_broadleaved1"/>
+  <use x="113" y="4" xlink:href="#leaftype_broadleaved1"/>
+  <use x="47" y="6" xlink:href="#leaftype_broadleaved1"/>
+  <use x="10" y="11" xlink:href="#leaftype_broadleaved1"/>
+  <use x="73" y="19" xlink:href="#leaftype_broadleaved1"/>
+  <use x="153" y="44" xlink:href="#leaftype_broadleaved1"/>
+  <use x="71" y="48" xlink:href="#leaftype_broadleaved1"/>
+  <use x="7" y="49" xlink:href="#leaftype_broadleaved1"/>
+  <use x="179" y="53" xlink:href="#leaftype_broadleaved1"/>
+  <use x="32" y="68" xlink:href="#leaftype_broadleaved1"/>
+  <use x="98" y="69" xlink:href="#leaftype_broadleaved1"/>
+  <use x="204" y="75" xlink:href="#leaftype_broadleaved1"/>
+  <use x="161" y="79" xlink:href="#leaftype_broadleaved1"/>
+  <use x="71" y="82" xlink:href="#leaftype_broadleaved1"/>
+  <use x="45" y="101" xlink:href="#leaftype_broadleaved1"/>
+  <use x="143" y="150" xlink:href="#leaftype_broadleaved1"/>
+  <use x="206" y="174" xlink:href="#leaftype_broadleaved1"/>
+  <use x="84" y="175" xlink:href="#leaftype_broadleaved1"/>
+  <use x="143" y="185" xlink:href="#leaftype_broadleaved1"/>
+  <use x="231" y="205" xlink:href="#leaftype_broadleaved1"/>
+  <use x="42" y="220" xlink:href="#leaftype_broadleaved1"/>
+  <use x="104" y="234" xlink:href="#leaftype_broadleaved1"/>
+  <use x="245" y="244" xlink:href="#leaftype_broadleaved1"/>
+  <use x="187" y="246" xlink:href="#leaftype_broadleaved1"/>
+  <use x="151" y="248" xlink:href="#leaftype_broadleaved1"/>
+  <use x="212" y="12" xlink:href="#leaftype_broadleaved1"/>
+  <use x="175" y="18" xlink:href="#leaftype_broadleaved1"/>
+  <use x="134" y="22" xlink:href="#leaftype_broadleaved1"/>
+  <use x="238" y="28" xlink:href="#leaftype_broadleaved1"/>
+  <use x="42" y="39" xlink:href="#leaftype_broadleaved1"/>
+  <use x="110" y="41" xlink:href="#leaftype_broadleaved1"/>
+  <use x="217" y="46" xlink:href="#leaftype_broadleaved1"/>
+  <use x="131" y="71" xlink:href="#leaftype_broadleaved1"/>
+  <use x="234" y="85" xlink:href="#leaftype_broadleaved1"/>
+  <use x="8" y="86" xlink:href="#leaftype_broadleaved1"/>
+  <use x="183" y="100" xlink:href="#leaftype_broadleaved1"/>
+  <use x="107" y="101" xlink:href="#leaftype_broadleaved1"/>
+  <use x="143" y="107" xlink:href="#leaftype_broadleaved1"/>
+  <use x="213" y="110" xlink:href="#leaftype_broadleaved1"/>
+  <use x="79" y="111" xlink:href="#leaftype_broadleaved1"/>
+  <use x="15" y="113" xlink:href="#leaftype_broadleaved1"/>
+  <use x="242" y="123" xlink:href="#leaftype_broadleaved1"/>
+  <use x="165" y="125" xlink:href="#leaftype_broadleaved1"/>
+  <use x="111" y="132" xlink:href="#leaftype_broadleaved1"/>
+  <use x="36" y="133" xlink:href="#leaftype_broadleaved1"/>
+  <use x="199" y="139" xlink:href="#leaftype_broadleaved1"/>
+  <use x="79" y="145" xlink:href="#leaftype_broadleaved1"/>
+  <use x="225" y="149" xlink:href="#leaftype_broadleaved1"/>
+  <use x="8" y="150" xlink:href="#leaftype_broadleaved1"/>
+  <use x="51" y="156" xlink:href="#leaftype_broadleaved1"/>
+  <use x="173" y="160" xlink:href="#leaftype_broadleaved1"/>
+  <use x="114" y="164" xlink:href="#leaftype_broadleaved1"/>
+  <use x="23" y="176" xlink:href="#leaftype_broadleaved1"/>
+  <use x="248" y="180" xlink:href="#leaftype_broadleaved1"/>
+  <use x="174" y="189" xlink:href="#leaftype_broadleaved1"/>
+  <use x="54" y="194" xlink:href="#leaftype_broadleaved1"/>
+  <use x="110" y="196" xlink:href="#leaftype_broadleaved1"/>
+  <use x="12" y="207" xlink:href="#leaftype_broadleaved1"/>
+  <use x="200" y="208" xlink:href="#leaftype_broadleaved1"/>
+  <use x="76" y="211" xlink:href="#leaftype_broadleaved1"/>
+  <use x="136" y="214" xlink:href="#leaftype_broadleaved1"/>
+  <use x="166" y="223" xlink:href="#leaftype_broadleaved1"/>
+  <use x="215" y="238" xlink:href="#leaftype_broadleaved1"/>
+  <use x="19" y="240" xlink:href="#leaftype_broadleaved1"/>
+  <use x="78" y="242" xlink:href="#leaftype_broadleaved1"/>
 </svg>
