@@ -3,6 +3,8 @@ BEGIN {
 	style = ""
 	i = 0
 	path = ""
+	current_x = 0
+	current_y = 0
 }
 
 #! /bin/awk -f
@@ -73,8 +75,11 @@ BEGIN {
 					if (x1 < symbol_x + casing[index_y, "left"]) {
 						x3 = symbol_x + casing[index_y, "left"]
 						# Special case: the line is broken in two by the symbol
-						if (x3 - x1 > 1)
-							printf(" M%g,%g h%g", x1, y, x3 - x1)
+						if (x3 - x1 > 1) {
+							move_xy(x1, y)
+							printf(" h%g", x3 - x1)
+							current_x = x3
+						}
 					}
 					x1 = max(symbol_x + casing[index_y, "right"], x1)
 				} else if (x1 < symbol_x + casing[index_y, "left"]) {
@@ -82,7 +87,9 @@ BEGIN {
 				}
 			}
 			if (x2 - x1 > 1 && p == i) {
-				printf(" M%g,%g h%g", x1, y, x2 - x1)
+				move_xy(x1, y)
+				printf(" h%g", x2 - x1)
+				current_x = x2
 			}
 		} else {
 			if (split($0, xy, ",") != 2)
@@ -91,7 +98,14 @@ BEGIN {
 			points_y[i] = xy[2]
 			i++
 			if (length(path) < 7) {
-				printf("M%s %s", $0, path)
+				# TODO: generalize this hack
+				if (path == "h7") {
+					move_xy(xy[1], xy[2])
+					printf(" h7")
+					current_x += 7
+				} else {
+					printf("M%s %s", $0, path)
+				}
 			} else {
 				printf("  <path d=\"M%s %s\" %s/>\n", $0, path, style)
 			}
@@ -107,6 +121,16 @@ function max(a, b) {
 function min(a, b) {
 	if (a < b) return a
 	else return b
+}
+
+function move_xy(x, y) {
+	if (y != current_y) {
+		printf("\nM%g,%g", x, y)
+	} else {
+		printf(" m%g,0", x - current_x)
+	}
+	current_y = y
+	current_x = x
 }
 
 END {
