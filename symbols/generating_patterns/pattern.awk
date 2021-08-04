@@ -6,7 +6,7 @@
 # current patterns.
 
 BEGIN {
-	INDIVIDUAL_PATH_LIMIT = 40
+	INDIVIDUAL_PATH_LIMIT = 45
 	size = 0
 	style = ""
 	i = 0
@@ -35,6 +35,8 @@ BEGIN {
 		}
 		path = substr($0, 7)
 		if (length(path) < INDIVIDUAL_PATH_LIMIT) {
+			# FIXME: generalize
+			sub(/m0,0 /, "", path)
 			printf("  <path %s d=\"", style)
 		} else {
 			id = FILENAME

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg version="1.1" width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <path id="scrub1" stroke-width="1" stroke="#b0be93" d="h7 m-3.5,0 v-5.5 m0,5.7 -2.5,-3.7 m5,0 -2.5,3.7"/>
+    <path id="scrub1" stroke-width="1" stroke="#b0be93" d="m0,0 h7 m-3.5,0 v-5.5 m0,5.7 -2.5,-3.7 m5,0 -2.5,3.7"/>
   </defs>
   <use x="7" y="14.5" xlink:href="#scrub1"/>
   <use x="32" y="26.5" xlink:href="#scrub1"/>
