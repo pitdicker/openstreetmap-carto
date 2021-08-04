@@ -1,3 +1,10 @@
+# PATTERN GENERATION SCRIPT
+# License: CC0 or MIT, (c) 2021 Paul Dicker
+#
+# Please note: This is a very basic script that doesn't make any attempt to
+# handle invalid inputs, or any complexity that was not necessary for the
+# current patterns.
+
 BEGIN {
 	size = 0
 	style = ""
@@ -15,6 +22,8 @@ BEGIN {
 			printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
 			printf("<svg version=\"1.1\" width=\"%i\" height=\"%i\" viewBox=\"0 0 %i %i\" xmlns=\"http://www.w3.org/2000/svg\">\n", size, size, size, size)
 		}
+	} else if (/^Style: /) {
+		style = substr($0, 8)
 	} else if (/^Path: /) {
 		if (path != "") {
 			if (length(path) < 7) {
@@ -25,8 +34,6 @@ BEGIN {
 		if (length(path) < 7) {
 			printf("  <path d=\"")
 		}
-	} else if (/^Style: /) {
-		style = substr($0, 8)
 	} else if (/^Casing: /) {
 		n = split(substr($0, 9), parts, " ")
 		y = parts[1] + 0
