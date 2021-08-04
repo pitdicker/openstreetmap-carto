@@ -1,6 +1,6 @@
 Size: 512
 Style: stroke="#4aa5fa" stroke-width=".8"
-Path: h7
+Path: m0,0 h7
 66,0.5
 123,0.5
 11,0.5

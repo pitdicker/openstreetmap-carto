@@ -1,6 +1,6 @@
 Size: 256
 Style: stroke-linecap="round" stroke-width="1.6" stroke="#ffffff"
-Path:  h0 
+Path: m0,0 h0
 1.75,2.50
 7.11,1.60
 12.62,3.23
