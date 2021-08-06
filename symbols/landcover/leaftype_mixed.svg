@@ -2,6 +2,7 @@
 <svg version="1.1" width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <path id="leaftype_mixed1" stroke-width="1" stroke="#6b8d5e" fill="none" d="m3.5,13 v-5.5 a3,3.5 0 0 1 0,-7 3,3.5 0 0 1 0,7"/>
+    <path id="leaftype_mixed2" stroke-width="1" stroke="#6b8d5e" fill="none" d="m3.5,13 v-4.5 m-3,0 v-.4093 l2.8465,-7.5907 h.307 l2.8465,7.5907 v.4093 z"/>
   </defs>
   <use x="245" y="-12" xlink:href="#leaftype_mixed1"/>
   <use x="187" y="-10" xlink:href="#leaftype_mixed1"/>
@@ -30,9 +31,6 @@
   <use x="245" y="244" xlink:href="#leaftype_mixed1"/>
   <use x="187" y="246" xlink:href="#leaftype_mixed1"/>
   <use x="151" y="248" xlink:href="#leaftype_mixed1"/>
-  <defs>
-    <path id="leaftype_mixed2" stroke-width="1" stroke="#6b8d5e" fill="none" d="m3.5,13 v-4.5 m-3,0 v-.4093 l2.8465,-7.5907 h.307 l2.8465,7.5907 v.4093 z"/>
-  </defs>
   <use x="212" y="12" xlink:href="#leaftype_mixed2"/>
   <use x="175" y="18" xlink:href="#leaftype_mixed2"/>
   <use x="134" y="22" xlink:href="#leaftype_mixed2"/>
