@@ -9,6 +9,8 @@ BEGIN {
 	INDIVIDUAL_PATH_LIMIT = 45
 	TRUE = 1
 	FALSE = 0
+	HORIZONTAL = 1
+	VERTICAL = 0
 	size = 0
 	i = 0
 	id = ""
@@ -24,39 +26,32 @@ BEGIN {
 			size = new_size
 		} else if (new_size != size) {
 			# Concatenating two patterns is allowed, but only if they are the same size
-			printf("ERROR: Found two patterns with different tile sizes\n", $0) >> "/dev/stderr"
+			printf("ERROR: Found two patterns with different tile sizes\n") >> "/dev/stderr"
 			exit
 		}
 	} else if (/^Style: /) {
-		if ((pat_nr, 0, "x") in Pattern) {
-			Pattern[pat_nr, "coords"] = i
-			pat_nr++
-			i = 0
-		}
+		finish_pattern()
 		Pattern[pat_nr, "style"] = substr($0, 8)
 	} else if (/^Path: /) {
-		if ((pat_nr, 0, "x") in Pattern) {
-			Pattern[pat_nr, "coords"] = i
-			pat_nr++
-			i = 0
+		finish_pattern()
+		path = substr($0, 7)
+		if (path ~ /.*[MZLHVCSQTA].*/) {
+			printf("ERROR: Found path with absolute commands\n") >> "/dev/stderr"
 		}
-		Pattern[pat_nr, "path"] = substr($0, 7)
+		Pattern[pat_nr, "path"] = path
+		if (length(Pattern[pat_nr, "path"]) < INDIVIDUAL_PATH_LIMIT) {
+			# FIXME: generalize
+			sub(/m0,0[ ,]*/, "", Pattern[pat_nr, "path"])
+		}
+
 		id = FILENAME
 		id_counter++
 		sub(/\.txt/, id_counter, id)
 		Pattern[pat_nr, "id"] = id
-		if (length(Pattern[pat_nr, "path"]) < INDIVIDUAL_PATH_LIMIT) {
-			# FIXME: generalize
-			sub(/m0,0 /, "", Pattern[pat_nr, "path"])
-		}
 	} else if (/^Casing: /) {
+		finish_pattern()
 		n = split(substr($0, 9), parts, " ")
 		y = parts[1] + 0
-		if ((pat_nr, 0, "x") in Pattern) {
-			Pattern[pat_nr, "coords"] = i
-			pat_nr++
-			i = 0
-		}
 		Pattern[pat_nr, "casing", "top"] = y
 		Pattern[pat_nr, "casing", "left"] = 1000
 		Pattern[pat_nr, "casing", "right"] = -1000
@@ -83,6 +78,14 @@ BEGIN {
 	}
 }
 
+function finish_pattern() {
+	if ((pat_nr, 0, "x") in Pattern) {
+		Pattern[pat_nr, "coords"] = i
+		pat_nr++
+		i = 0
+	}
+}
+
 function max(a, b) {
 	if (a > b) return a
 	else return b
@@ -93,19 +96,19 @@ function min(a, b) {
 	else return b
 }
 
-function move_xy(x, y) {
-	if (y != current_y) {
+function move_xy(x, y, direction) {
+	if (direction == HORIZONTAL && y != current_y || direction == VERTICAL && x != current_x) {
 		printf("\nM%g,%g", x, y)
 	} else {
-		printf(" m%g,0", x - current_x)
+		printf(" m%g,%g", x - current_x, y - current_y)
 	}
 	current_y = y
 	current_x = x
 }
 
 END {
-	Pattern[pat_nr, "coords"] = i
-	pattern_count = pat_nr + 1
+	finish_pattern()
+	pattern_count = pat_nr
 
 	style = ""
 	for (pat_nr = 0; pat_nr < pattern_count; pat_nr++) {
@@ -177,7 +180,7 @@ END {
 								x3 = symbol_x + casing_left
 								# Special case: the line is broken in two by the symbol
 								if (x3 - x1 > 1) {
-									move_xy(x1, y)
+									move_xy(x1, y, HORIZONTAL)
 									printf(" h%g", x3 - x1)
 									current_x = x3
 								}
@@ -189,7 +192,7 @@ END {
 					}
 				}
 				if (x2 - x1 > 1) {
-					move_xy(x1, y)
+					move_xy(x1, y, HORIZONTAL)
 					printf(" h%g", x2 - x1)
 					current_x = x2
 				}
@@ -199,10 +202,16 @@ END {
 			printf("  <path %s d=\"", Pattern[pat_nr, "style"])
 			for (i = 0; i < Pattern[pat_nr, "coords"]; i++) {
 				# TODO: generalize this hack
-				if (Pattern[pat_nr, "path"] == "h7") {
-					move_xy(Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"])
-					printf(" h7")
-					current_x += 7
+				if (Pattern[pat_nr, "path"] ~ /[vh] *-?[0-9]+/) {
+					len = substr(Pattern[pat_nr, "path"], 2) +0
+					if (Pattern[pat_nr, "path"] ~ /v.*/) {
+						move_xy(Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], VERTICAL)
+						current_y += len
+					} else {
+						move_xy(Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], HORIZONTAL)
+						current_x += len
+					}
+					printf(" %s", Pattern[pat_nr, "path"])
 				} else {
 					printf("\nM%g,%g %s", Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], Pattern[pat_nr, "path"])
 				}
