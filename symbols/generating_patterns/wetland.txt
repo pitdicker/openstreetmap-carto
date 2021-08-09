@@ -1,5 +1,5 @@
 Size: 256
-Style: stroke="#4aa5fa"
+Style: stroke="#4aa5fa" stroke-width=".8"
 Path: m0,0 h7
 11,0.5
 43,0.5
