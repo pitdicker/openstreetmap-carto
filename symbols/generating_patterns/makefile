@@ -1,4 +1,7 @@
-all: ../landcover/leaftype_broadleaved.svg ../landcover/leaftype_leafless.svg ../landcover/leaftype_mixed.svg ../landcover/leaftype_needleleaved.svg ../landcover/leaftype_unknown.svg ../landcover/plant_nursery.svg ../landcover/quarry.svg ../landcover/salt_dots.svg ../landcover/salt_pond.svg ../landcover/scrub.svg ../landcover/vineyard.svg ../landcover/wetland.svg ../landcover/wetland_bog.svg ../landcover/wetland_mangrove.svg ../landcover/wetland_marsh.svg ../landcover/wetland_reed.svg ../landcover/wetland_swamp.svg
+all: ../landcover/beach.svg ../landcover/leaftype_broadleaved.svg ../landcover/leaftype_leafless.svg ../landcover/leaftype_mixed.svg ../landcover/leaftype_needleleaved.svg ../landcover/leaftype_unknown.svg ../landcover/plant_nursery.svg ../landcover/quarry.svg ../landcover/salt_dots.svg ../landcover/salt_pond.svg ../landcover/scrub.svg ../landcover/vineyard.svg ../landcover/wetland.svg ../landcover/wetland_bog.svg ../landcover/wetland_mangrove.svg ../landcover/wetland_marsh.svg ../landcover/wetland_reed.svg ../landcover/wetland_swamp.svg
+
+../landcover/beach.svg: pattern.awk beach.txt
+	awk -f pattern.awk beach.txt > ../landcover/beach.svg
 
 ../landcover/leaftype_broadleaved.svg: pattern.awk leaftype_broadleaved.txt
 	awk -f pattern.awk leaftype_broadleaved.txt > ../landcover/leaftype_broadleaved.svg
