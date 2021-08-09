@@ -6,7 +6,7 @@
 # current patterns.
 
 BEGIN {
-	INDIVIDUAL_PATH_LIMIT = 45
+	INDIVIDUAL_PATH_LIMIT = 38
 	TRUE = 1
 	FALSE = 0
 	HORIZONTAL = 1
@@ -37,12 +37,20 @@ BEGIN {
 		path = substr($0, 7)
 		if (path ~ /.*[MZLHVCSQTA].*/) {
 			printf("ERROR: Found path with absolute commands\n") >> "/dev/stderr"
+			exit
+		}
+		if (match(path, /^m\-?[\.0-9]+,\-?[\.0-9]+/) != 0) {
+			moveto = substr(path, 2, RLENGTH-1)
+			path = substr(path, RLENGTH+1)
+			sub(/^ */, "", path)
+			if (split(moveto, xy, ",") != 2)
+				printf("ERROR: invalid coordinate %s\n", $0) >> "/dev/stderr"
+			Pattern[pat_nr, "off_x"] = xy[1]
+			Pattern[pat_nr, "off_y"] = xy[2]
+		} else {
+			printf("ERROR: Found path with missing moveto: \"%s\"\n", path) >> "/dev/stderr"
 		}
 		Pattern[pat_nr, "path"] = path
-		if (length(Pattern[pat_nr, "path"]) < INDIVIDUAL_PATH_LIMIT) {
-			# FIXME: generalize
-			sub(/m0,0[ ,]*/, "", Pattern[pat_nr, "path"])
-		}
 
 		id = FILENAME
 		id_counter++
@@ -98,7 +106,7 @@ function min(a, b) {
 
 function move_xy(x, y, direction) {
 	if (direction == HORIZONTAL && y != current_y || direction == VERTICAL && x != current_x) {
-		printf("\nM%g,%g", x, y)
+		printf("\nM%g,%g", x + Pattern[pat_nr, "off_x"], y + Pattern[pat_nr, "off_y"])
 	} else {
 		printf(" m%g,%g", x - current_x, y - current_y)
 	}
@@ -117,7 +125,7 @@ END {
 		}
 		style = Pattern[pat_nr, "style"]
 	}
-	
+
 	use_def = FALSE
 	for (pat_nr = 0; pat_nr < pattern_count; pat_nr++) {
 		if (length(Pattern[pat_nr, "path"]) > INDIVIDUAL_PATH_LIMIT) {
@@ -135,7 +143,7 @@ END {
 		printf("  <defs>\n")
 		for (pat_nr = 0; pat_nr < pattern_count; pat_nr++) {
 			if (length(Pattern[pat_nr, "path"]) > INDIVIDUAL_PATH_LIMIT) {
-				printf("    <path id=\"%s\" %s d=\"%s\"/>\n", Pattern[pat_nr, "id"], Pattern[pat_nr, "style"], Pattern[pat_nr, "path"])
+				printf("    <path id=\"%s\" %s d=\"m%g,%g %s\"/>\n", Pattern[pat_nr, "id"], Pattern[pat_nr, "style"], Pattern[pat_nr, "off_x"], Pattern[pat_nr, "off_y"], Pattern[pat_nr, "path"])
 			}
 		}
 		printf("  </defs>\n")
@@ -201,8 +209,7 @@ END {
 		} else {
 			printf("  <path %s d=\"", Pattern[pat_nr, "style"])
 			for (i = 0; i < Pattern[pat_nr, "coords"]; i++) {
-				# TODO: generalize this hack
-				if (Pattern[pat_nr, "path"] ~ /[vh] *-?[0-9]+/) {
+				if (Pattern[pat_nr, "path"] ~ /[vh] *-?[0-9\.]+/) {
 					len = substr(Pattern[pat_nr, "path"], 2) +0
 					if (Pattern[pat_nr, "path"] ~ /v.*/) {
 						move_xy(Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], VERTICAL)
@@ -213,7 +220,7 @@ END {
 					}
 					printf(" %s", Pattern[pat_nr, "path"])
 				} else {
-					printf("\nM%g,%g %s", Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], Pattern[pat_nr, "path"])
+					printf("\nM%g,%g %s", Pattern[pat_nr, i, "x"] + Pattern[pat_nr, "off_x"], Pattern[pat_nr, i, "y"] + Pattern[pat_nr, "off_y"], Pattern[pat_nr, "path"])
 				}
 			}
 			printf("\"/>\n")
