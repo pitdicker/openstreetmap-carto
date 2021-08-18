@@ -98,6 +98,8 @@ A single symbol, repeated in a 32×32 grid. (color: `#88b78e`).
 
 ## Patterns with symbols, generated positions
 
+A preview of the different forest symbols is available in `forest.svg`.
+
 ### `leaftype_unknown.svg`
 Tiles of 256×256px.
 Random pattern of two symbols with a 30px distance (color: `#6b8d5e`).
@@ -164,5 +166,9 @@ Final svg generated with `pattern.awk` from `wetland.txt`.
 
 All wetland tiles are 512×512px. The basis is `wetland512.txt`, which has the coordinates of `wetland.txt` repeated the cover the larger size.
 
+A preview of the different wetland symbols, and the use casing around them, is available in `wetland_casings.svg`.
 
+
+
+Other symbols: salt_pond, scrub, quarry
 
