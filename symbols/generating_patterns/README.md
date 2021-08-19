@@ -168,7 +168,27 @@ All wetland tiles are 512×512px. The basis is `wetland512.txt`, which has the c
 
 A preview of the different wetland symbols, and the use casing around them, is available in `wetland_casings.svg`.
 
+TODO
 
+TODO Other symbols: salt_pond, scrub, quarry
 
-Other symbols: salt_pond, scrub, quarry
+## Rock
 
+### `rock.svg`
+Tiles of 256×256px.
+Random pattern of 12 complex shapes, each with 13 possible rotations.
+The positions are close enough for the shapes to overlap.
+Every shape has both a fill, and a casing of 0.6px around it to hide part of the underlying shapes.
+
+Overlapping shapes, with a casing as outline in between, don't work with a pattern with opacity.
+That is why `rock.svg` is the only pattern that needs to include both a foreground color (`#cfcdca`) and background color (`#eee5dc`).
+
+One option to include casing is to repeat every shape twice: once with a stroke of 1.2px with the background color, and then one with only a fill on top of that.
+An alternative is to offset the path of the shape by 0.3px, and use that single shape with both a fill and a stroke of 0.6px.
+The alternative almost halves the complexity for the rasterizer, so now all shapes are offset in Inkscape.
+
+A preview of the various original and offset shapes is available in `rock_outlines.svg`.
+
+Pattern positions originally generated with jsdotpattern, command sequence not recorded.
+`rock.txt` contains a list of coordinates, shapes and orientations extracted from a pre-existing svg.
+`rock.awk` is a script to convert the coordinates to SVG `use` elements, which are manually combined with the shapes from `rock_outlines` to create `rock.svg`.
