@@ -1,4 +1,14 @@
 # Vector pattern generation
+This file contains some documentation on the patterns in `symbols/landcover`.
+Some of the patterns are created by hand, others are generated.
+Most of the more complex patterns are generated with `pattern.awk` from a text file.
+
+### Pattern text file format
+The first line of a pattern text file has the tile size.
+Next the style of the symbols, such as color, opacity and stroke-width (provided as SVG attributes).
+The third line should be the symbol shape (the instructions inside an SVG `path`). Make sure all path commands use relative positions.
+Most of the rest is a list of x,y coordinates where to insert the symbol.
+It is possible to concatenate multiple symbols with their list of coordinates to generate a pattern with multiple symbols.
 
 
 ## Basic hatches
@@ -163,14 +173,52 @@ Final svg generated with `pattern.awk` from `wetland.txt`.
 
 
 ## Wetland patterns
-
 All wetland tiles are 512×512px. The basis is `wetland512.txt`, which has the coordinates of `wetland.txt` repeated the cover the larger size.
 
-A preview of the different wetland symbols, and the use casing around them, is available in `wetland_casings.svg`.
+The wetland patterns put different plant symbols on top of the blue wetland lines.
+The symbols have a ~2px casing around them, rounded to the nearest pixel boundary.
+If there is only 1 pixel left of the lines in the covered wetland pattern, that part of the line is be removed.
 
-TODO
+`pattern.awk` has some complexity to deal with this, but only in a very basic way. It is hard-coded for the wetland patterns, and every shape has the outline of its casing manually recorded in the text file.
 
-TODO Other symbols: salt_pond, scrub, quarry
+A preview of the various shapes is available in `wetland_casings.svg` (created by adding a copy of the shape with `stroke-width="4"`, and eyeballing the closest pixel boundary).
+
+### `wetland_marsh.svg`
+Tiles of 512x512px.
+Random pattern of two grass symbols (color: `#73b386`), on top of the `wetland512` pattern.
+Positions originally generated with jsdotpattern, command sequence not recorded.
+Coordinates are recreated from a pre-existing svg, positions saved in `wetland_marsh.txt`.
+Final svg generated with `pattern.awk` from `marsh.txt` and `wetland512.txt`.
+
+### `wetland_reed.svg`
+Tiles of 512x512px.
+Based on `marsh.txt`, but with two reed symbols (color: `#73b386`).
+Final svg generated with `pattern.awk` from `reed.txt` and `wetland512.txt`.
+
+### `wetland_swamp.svg`
+Tiles of 512x512px.
+Based on `marsh.txt`, but with the two symbols of `leaftype_unknown` (color: `#93b685`).
+Final svg generated with `pattern.awk` from `swamp.txt` and `wetland512.txt`.
+
+### `wetland_bog.svg`
+Tiles of 512x512px.
+Based on `marsh.txt`, but with only one symbol (color: `#73b386`).
+Final svg generated with `pattern.awk` from `bog.txt` and `wetland512.txt`.
+
+### `wetland_mangrove.svg`
+Tiles of 512x512px.
+Based on `marsh.txt`, but with only one symbol (color: `#709b6f`).
+Final svg generated with `pattern.awk` from `mangrove.txt` and `wetland512.txt`.
+
+### Casing format in text file
+The wetland `.txt` files contain a `casing:` line. Example:
+```
+Casing: -5 -3|0 -3|4 -4|6 -5|7 -6|7 -5|6 -5|6 -5|6 -5|6 -5|6 -4|6
+```
+The first number is the number of pixels that the casing starts above the insertion point of the symbol.
+Then for every lineof pixels there is a `left|right` pair describing the shape of the casing.
+`-3|4` means the casing starts at `-3` from the insertion point: 3px to the left; and end at `4`; 4px to the right.
+
 
 ## Rock
 
