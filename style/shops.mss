@@ -1,3 +1,5 @@
+@gastronomy-icon: #C77400;
+@gastronomy-text: darken(@gastronomy-icon, 5%);
 @shop-icon: #ac39ac;
 @shop-text: #939;
 
@@ -258,6 +260,54 @@
     }
   }
 
+  [feature = 'amenity_food_court'][zoom >= 17] {
+    marker-file: url('symbols/amenity/restaurant.svg');
+    marker-clip: false;
+    marker-fill: @gastronomy-icon;
+  }
+
+  [feature = 'amenity_bar'],
+  [feature = 'amenity_biergarten'],
+  [feature = 'amenity_cafe'],
+  [feature = 'amenity_fast_food'],
+  [feature = 'amenity_food_court'],
+  [feature = 'amenity_ice_cream'],
+  [feature = 'amenity_pub'],
+  [feature = 'amenity_restaurant'] {
+    [feature != 'amenity_food_court'][zoom >= 17][zoom < 18] {
+      marker-width: 4;
+      marker-line-width: 0;
+      marker-clip: false;
+      marker-fill: @gastronomy-icon;
+    }
+
+    [zoom >= 18] {
+      marker-clip: false;
+      marker-fill: @gastronomy-icon;
+      [feature = 'amenity_bar'] {
+        marker-file: url('symbols/amenity/bar.svg');
+      }
+      [feature = 'amenity_biergarten'] {
+        marker-file: url('symbols/amenity/biergarten.svg');
+      }
+      [feature = 'amenity_cafe'] {
+        marker-file: url('symbols/amenity/cafe.svg');
+      }
+      [feature = 'amenity_fast_food'] {
+        marker-file: url('symbols/amenity/fast_food.svg');
+      }
+      [feature = 'amenity_restaurant'] {
+        marker-file: url('symbols/amenity/restaurant.svg');
+      }
+      [feature = 'amenity_ice_cream'] {
+        marker-file: url('symbols/amenity/ice_cream.svg');
+      }
+      [feature = 'amenity_pub'] {
+        marker-file: url('symbols/amenity/pub.svg');
+      }
+    }
+  }
+
   // office points
   [feature = 'office'][zoom >= 18] {
     marker-width: 6;
@@ -310,6 +360,28 @@
       text-face-name: @standard-font;
       text-halo-radius: @standard-halo-radius;
       text-halo-fill: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  [feature = 'amenity_pub'][zoom >= 18],
+  [feature = 'amenity_restaurant'][zoom >= 18],
+  [feature = 'amenity_food_court'][zoom >= 17],
+  [feature = 'amenity_cafe'][zoom >= 18],
+  [feature = 'amenity_fast_food'][zoom >= 18],
+  [feature = 'amenity_biergarten'][zoom >= 18],
+  [feature = 'amenity_bar'][zoom >= 18],
+  [feature = 'amenity_ice_cream'][zoom >= 18] {
+    text-name: "[name]";
+    text-fill: @gastronomy-text;
+    text-size: @standard-font-size;
+    text-wrap-width: @standard-wrap-width;
+    text-line-spacing: @standard-line-spacing-size;
+    text-dy: 11;
+    text-face-name: @standard-font;
+    text-halo-radius: @standard-halo-radius;
+    text-halo-fill: @standard-halo-fill;
+    [feature = 'amenity_bar'] {
+      text-dy: 13;
     }
   }
 

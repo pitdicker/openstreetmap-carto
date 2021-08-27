@@ -7,8 +7,6 @@
 @airtransport: #8461C4; //also ferry_terminal
 @health-color: #BF0000;
 @amenity-brown: #734a08;
-@gastronomy-icon: #C77400;
-@gastronomy-text: darken(@gastronomy-icon, 5%);
 @memorials: @amenity-brown;
 @culture: @amenity-brown;
 @public-service: @amenity-brown;
@@ -75,44 +73,6 @@
     marker-file: url('symbols/amenity/bank.svg');
     marker-fill: @public-service;
     marker-clip: false;
-  }
-
-  [feature = 'amenity_bar'][zoom >= 17],
-  [feature = 'amenity_biergarten'][zoom >= 17],
-  [feature = 'amenity_cafe'][zoom >= 17],
-  [feature = 'amenity_fast_food'][zoom >= 17],
-  [feature = 'amenity_food_court'][zoom >= 17],
-  [feature = 'amenity_ice_cream'][zoom >= 17],
-  [feature = 'amenity_pub'][zoom >= 17],
-  [feature = 'amenity_restaurant'][zoom >= 17] {
-    marker-clip: false;
-    marker-fill: @gastronomy-icon;
-    [feature != 'amenity_food_court'][zoom = 17] {
-      marker-width: 4;
-      marker-line-width: 0;
-    }
-    [feature = 'amenity_bar'][zoom >= 18] {
-      marker-file: url('symbols/amenity/bar.svg');
-    }
-    [feature = 'amenity_biergarten'][zoom >= 18] {
-      marker-file: url('symbols/amenity/biergarten.svg');
-    }
-    [feature = 'amenity_cafe'][zoom >= 18] {
-      marker-file: url('symbols/amenity/cafe.svg');
-    }
-    [feature = 'amenity_fast_food'][zoom >= 18] {
-      marker-file: url('symbols/amenity/fast_food.svg');
-    }
-    [feature = 'amenity_food_court'][zoom >= 17],
-    [feature = 'amenity_restaurant'][zoom >= 18] {
-      marker-file: url('symbols/amenity/restaurant.svg');
-    }
-    [feature = 'amenity_ice_cream'][zoom >= 18] {
-      marker-file: url('symbols/amenity/ice_cream.svg');
-    }
-    [feature = 'amenity_pub'][zoom >= 18] {
-      marker-file: url('symbols/amenity/pub.svg');
-    }
   }
 
   [feature = 'amenity_internet_cafe'][zoom >= 17] {
@@ -1283,28 +1243,6 @@
     text-wrap-width: 45; // 4.5 em
     text-line-spacing: -0.8; // -0.08 em
     text-margin: 7.0; // 0.7 em
-  }
-
-  [feature = 'amenity_pub'][zoom >= 18],
-  [feature = 'amenity_restaurant'][zoom >= 18],
-  [feature = 'amenity_food_court'][zoom >= 17],
-  [feature = 'amenity_cafe'][zoom >= 18],
-  [feature = 'amenity_fast_food'][zoom >= 18],
-  [feature = 'amenity_biergarten'][zoom >= 18],
-  [feature = 'amenity_bar'][zoom >= 18],
-  [feature = 'amenity_ice_cream'][zoom >= 18] {
-    text-name: "[name]";
-    text-fill: @gastronomy-text;
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-dy: 11;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-    [feature = 'amenity_bar'] {
-      text-dy: 13;
-    }
   }
 
   [feature = 'amenity_library'],
