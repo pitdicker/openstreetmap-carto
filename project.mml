@@ -45,6 +45,7 @@ Stylesheet:
   - style/buildings.mss
   - style/stations.mss
   - style/amenity-points.mss
+  - style/shops.mss
   - style/ferry-routes.mss
   - style/aerialways.mss
   - style/admin.mss
