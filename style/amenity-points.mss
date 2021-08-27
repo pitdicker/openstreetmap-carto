@@ -1,10 +1,7 @@
 @marina-text: #576ddf; // also swimming_pool
 @wetland-text: darken(#4aa5fa, 25%); /* Also for mud */
-@transportation-icon: #0092da;
-@transportation-text: #0066ff;
 @accommodation-icon: @transportation-icon;
 @accommodation-text: @transportation-text;
-@airtransport: #8461C4; //also ferry_terminal
 @health-color: #BF0000;
 @amenity-brown: #734a08;
 @memorials: @amenity-brown;
@@ -13,7 +10,6 @@
 @office: #4863A0;
 @man-made-icon: #666666;
 @advertising-grey: @man-made-icon;
-@barrier-icon: #3f3f3f;
 @landform-color: #d08f55;
 @leisure-green: darken(@park, 60%);
 @protected-area: #008000;
@@ -96,45 +92,6 @@
     marker-clip: false;
   }
 
-  [feature = 'amenity_bicycle_rental'][zoom >= 17] {
-    marker-file: url('symbols/amenity/rental_bicycle.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'highway_bus_stop'] {
-    [zoom >= 16] {
-      marker-file: url('symbols/square.svg');
-      marker-fill: @transportation-icon;
-      marker-width: 6;
-      marker-clip: false;
-    }
-    [zoom >= 17] {
-      marker-file: url('symbols/highway/bus_stop.12.svg');
-      marker-width: 12;
-    }
-  }
-
-  [feature = 'highway_elevator'][zoom >= 18] {
-    [access = null],
-    [access = 'yes'] {
-      marker-file: url('symbols/highway/elevator.12.svg');
-      marker-fill: @transportation-icon;
-    }
-  }
-
-  [feature = 'amenity_bus_station'][zoom >= 16] {
-    marker-file: url('symbols/amenity/bus_station.svg');
-    // use colors from SVG to allow for white background
-    marker-clip: false;
-  }
-
-  [feature = 'amenity_taxi'][zoom >= 17] {
-    marker-file: url('symbols/amenity/taxi.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
-  }
-
   [feature = 'amenity_vending_machine'][zoom >= 19] {
     [vending = 'excrement_bags'] {
       marker-file: url('symbols/amenity/excrement_bags.svg');
@@ -146,18 +103,6 @@
       marker-file: url('symbols/amenity/public_transport_tickets.svg');
     }
     marker-fill: @amenity-brown;
-    marker-clip: false;
-  }
-
-  [feature = 'highway_traffic_signals'][zoom >= 17] {
-    marker-file: url('symbols/highway/traffic_light.13.svg');
-    marker-fill: #545454;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_toll_booth'][zoom >= 16] {
-    marker-file: url('symbols/barrier/toll_booth.svg');
-    marker-fill: @transportation-icon;
     marker-clip: false;
   }
 
@@ -180,23 +125,10 @@
     marker-clip: false;
   }
 
-  // Ford tagging on points - ford on lines is defined later
-  [feature = 'highway_ford'][zoom >= 16] {
-    marker-file: url('symbols/highway/ford.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
-  }
-
   [feature = 'tourism_caravan_site'][zoom >= 16] {
     marker-file: url('symbols/tourism/caravan_park.svg');
     marker-clip: false;
     marker-fill: @accommodation-icon;
-  }
-
-  [feature = 'amenity_car_rental'][zoom >= 17] {
-    marker-file: url('symbols/amenity/rental_car.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
   }
 
   [feature = 'amenity_car_wash'][zoom >= 17] {
@@ -259,21 +191,6 @@
         nozzle/marker-clip: false;
       }
     }
-  }
-
-  [feature = 'amenity_charging_station'][zoom >= 17] {
-    marker-file: url('symbols/amenity/charging_station.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
-    [access != ''][access != 'permissive'][access != 'yes'] {
-      marker-opacity: 0.33;
-    }
-  }
-
-  [feature = 'amenity_fuel'][zoom >= 17] {
-    marker-file: url('symbols/amenity/fuel.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
   }
 
   [feature = 'tourism_guest_house'][zoom >= 17] {
@@ -937,36 +854,6 @@
     marker-clip: false;
   }
 
-  [feature = 'amenity_boat_rental'][zoom >= 17] {
-    marker-file: url('symbols/amenity/boat_rental.svg');
-    marker-fill: @transportation-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'aeroway_helipad'][zoom >= 16] {
-    marker-file: url('symbols/helipad.16.svg');
-    marker-clip: false;
-    marker-fill: @airtransport;
-  }
-
-  [feature = 'aeroway_aerodrome']['access' != 'private']['icao' != null]['iata' != null][zoom >= 10][zoom < 17],
-  [feature = 'aeroway_aerodrome']['access' = 'private'][zoom >= 12][zoom < 18],
-  [feature = 'aeroway_aerodrome']['icao' = null][zoom >= 12][zoom < 18],
-  [feature = 'aeroway_aerodrome']['iata' = null][zoom >= 12][zoom < 18] {
-    [way_pixels <= 192000],
-    [way_pixels = null] {
-      marker-file: url('symbols/aerodrome.12.svg');
-      marker-clip: false;
-      marker-fill: @airtransport;
-    }
-  }
-
-  [feature = 'amenity_ferry_terminal'][zoom >= 15] {
-    marker-file: url('symbols/amenity/ferry.svg');
-    marker-clip: false;
-    marker-fill: @airtransport;
-  }
-
   [feature = 'man_made_lighthouse'][zoom >= 15] {
     marker-file: url('symbols/man_made/lighthouse.svg');
     marker-clip: false;
@@ -1049,28 +936,6 @@
       marker-fill: @man-made-icon;
     }
   }
-
-  [feature = 'amenity_parking'],
-  [feature = 'amenity_bicycle_parking'],
-  [feature = 'amenity_motorcycle_parking'],
-  [feature = 'amenity_parking_entrance'] {
-    [zoom >= 14][way_pixels > 750]["parking" != 'street_side']["parking" != 'lane'],
-    [zoom >= 17][feature = 'amenity_parking']["parking" != 'street_side']["parking" != 'lane'],
-    [zoom >= 18] {
-      [feature = 'amenity_parking'] { marker-file: url('symbols/amenity/parking.svg'); }
-      [feature = 'amenity_parking']["parking" = 'street_side'],
-      [feature = 'amenity_parking']["parking" = 'lane'] { 
-        marker-file: url('symbols/amenity/parking_subtle.svg'); 
-      }
-      [feature = 'amenity_bicycle_parking'] { marker-file: url('symbols/amenity/bicycle_parking.svg'); }
-      [feature = 'amenity_motorcycle_parking'] { marker-file: url('symbols/amenity/motorcycle_parking.svg'); }
-      [feature = 'amenity_parking_entrance']["parking"='underground'] { marker-file: url('symbols/amenity/parking_entrance_underground.svg'); }
-      [feature = 'amenity_parking_entrance']["parking"='multi-storey'] { marker-file: url('symbols/amenity/parking_entrance_multistorey.svg'); }
-      marker-clip: false;
-      marker-fill: @transportation-icon;
-      [access != ''][access != 'permissive'][access != 'yes'] { marker-opacity: 0.33; }
-    }
-  }
 }
 
 #amenity-low-priority {
@@ -1085,79 +950,6 @@
     marker-file: url('symbols/historic/shrine.svg');
     marker-fill: @man-made-icon;
     marker-clip: false;
-  }
-
-  [feature = 'railway_level_crossing'][zoom >= 14]::railway,
-  [feature = 'railway_crossing'][zoom >= 15]::railway{
-    marker-file: url('symbols/level_crossing.svg');
-    [zoom >= 16] {
-      marker-file: url('symbols/level_crossing2.svg');
-    }
-  }
-
-  [feature = 'barrier_gate']::barrier {
-    [zoom >= 17] {
-      marker-file: url('symbols/barrier/gate.svg');
-      marker-clip: false;
-    }
-  }
-
-  [feature = 'barrier_lift_gate'][zoom >= 17]::barrier,
-  [feature = 'barrier_swing_gate'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/lift_gate.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_cattle_grid'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/cattle_grid.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_stile'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/stile.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_motorcycle_barrier'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/motorcycle_barrier.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_cycle_barrier'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/cycle_barrier.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_full-height_turnstile'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/full-height_turnstile.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_kissing_gate'][zoom >= 17]::barrier {
-    marker-file: url('symbols/barrier/kissing_gate.svg');
-    marker-fill: @barrier-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'barrier_bollard'],
-  [feature = 'barrier_block'],
-  [feature = 'barrier_log'],
-  [feature = 'barrier_turnstile'] {
-    [zoom >= 17] {
-      marker-width: 3;
-      marker-line-width: 0;
-      marker-fill: #7d7c7c;
-
-      [zoom >= 18] {
-        marker-width: 4;
-      }
-    }
   }
 
   [feature = 'amenity_bench'][zoom >= 19]::amenity {
@@ -1289,26 +1081,6 @@
     text-line-spacing: @standard-line-spacing-size;
     text-fill: @leisure-green;
     text-dy: 11;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
-  [feature = 'amenity_car_rental'][zoom >= 17],
-  [feature = 'amenity_bicycle_rental'][zoom >= 17],
-  [feature = 'amenity_boat_rental'][zoom >= 17],
-  [feature = 'barrier_toll_booth'][zoom >= 17],
-  [feature = 'leisure_slipway'][zoom >= 17] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: @transportation-text;
-    [feature = 'amenity_car_rental']     { text-dy: 10; }
-    [feature = 'amenity_bicycle_rental'] { text-dy: 10; }
-    [feature = 'amenity_boat_rental']    { text-dy: 13; }
-    [feature = 'barrier_toll_booth']     { text-dy: 13; }
-    [feature = 'leisure_slipway']        { text-dy: 13; }
     text-face-name: @standard-font;
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
@@ -1980,42 +1752,6 @@
     }
   }
 
-  [feature = 'amenity_taxi'][zoom >= 17] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: @transportation-text;
-    text-dy: 11;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
-  [feature = 'highway_bus_stop'],
-  [feature = 'amenity_charging_station'],
-  [feature = 'amenity_fuel'],
-  [feature = 'amenity_bus_station'] {
-    [zoom >= 17] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: @transportation-text;
-      text-dy: 11;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-      [feature = 'highway_bus_stop'] {
-        text-dy: 9;
-      }
-      [access != ''][access != 'permissive'][access != 'yes'] {
-        text-opacity: 0.33;
-        text-halo-radius: 0;
-      }
-    }
-  }
-
   [feature = 'leisure_marina'][zoom >= 15] {
     [zoom >= 10][way_pixels > 3000],
     [zoom >= 17] {
@@ -2163,17 +1899,6 @@
     }
   }
 
-  [feature = 'aeroway_gate'][zoom >= 17] {
-    text-name: "[ref]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: black;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
   [feature = 'power_plant'][is_building = 'no'][zoom >= 10],
   [feature = 'power_generator'][is_building = 'no']["generator:source" != 'wind'][zoom >= 10],
   [feature = 'power_substation'][is_building = 'no'][zoom >= 13]{
@@ -2308,48 +2033,6 @@
     }
   }
 
-  [feature = 'aeroway_helipad'][zoom >= 16] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: @airtransport;
-    text-dy: -10;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
-  [feature = 'aeroway_aerodrome']['access' != 'private']['icao' != null]['iata' != null][zoom >= 11][zoom < 17],
-  [feature = 'aeroway_aerodrome']['access' = 'private'][zoom >= 13][zoom < 18],
-  [feature = 'aeroway_aerodrome']['icao' = null][zoom >= 13][zoom < 18],
-  [feature = 'aeroway_aerodrome']['iata' = null][zoom >= 13][zoom < 18] {
-    [way_pixels <= 192000],
-    [way_pixels = null] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: darken(@airtransport, 15%);
-      text-dy: 10;
-      text-face-name: @oblique-fonts;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-    }
-  }
-
-  [feature = 'amenity_ferry_terminal'][zoom >= 15] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: darken(@airtransport, 15%);
-    text-dy: 10;
-    text-face-name: @oblique-fonts;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
   [feature = 'amenity_hunting_stand'][zoom >= 17] {
     text-name: "[name]";
     text-size: @standard-font-size;
@@ -2399,30 +2082,6 @@
     text-halo-fill: @standard-halo-fill;
     text-face-name: @standard-font;
   }
-
-  [feature = 'amenity_parking'],
-  [feature = 'amenity_bicycle_parking'],
-  [feature = 'amenity_motorcycle_parking'],
-  [feature = 'amenity_parking_entrance']["parking"='underground'] {
-    [zoom >= 14][way_pixels > 3000],
-    [zoom >= 18] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: @transportation-text;
-      text-dy: 9;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-      [access != ''][access != 'permissive'][access != 'yes'] {
-        text-opacity: 0.33;
-        text-halo-radius: 0;
-      }
-      [feature = 'amenity_bicycle_parking'],
-      [feature = 'amenity_motorcycle_parking'] { text-dy: 12; }
-    }
-  }
 }
 
 #text-low-priority {
@@ -2443,11 +2102,6 @@
 }
 
 #amenity-line {
-  // Ford tagging on ways
-  [feature = 'highway_ford'][zoom >= 16] {
-    marker-file: url('symbols/highway/ford.svg');
-    marker-fill: @transportation-icon;
-  }
   // Slipway tagging on ways
   [feature = 'leisure_slipway'][zoom >= 17] {
     marker-file: url('symbols/leisure/slipway.svg');
