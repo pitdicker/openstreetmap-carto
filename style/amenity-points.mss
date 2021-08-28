@@ -854,61 +854,6 @@
 /* Note that these layers are also used in water.mss */
 #text-poly-low-zoom[zoom < 10],
 #text-point[zoom >= 10] {
-  [feature = 'place_island'][zoom >= 4][way_pixels > 3000],
-  [feature = 'place_island'][zoom >= 16],
-  [feature = 'place_islet'][zoom >= 11][way_pixels > 3000],
-  [feature = 'place_islet'][zoom >= 17] {
-    text-name: "[name]";
-    text-fill: #000;
-    text-size: @landcover-font-size;
-    text-wrap-width: @landcover-wrap-width-size;
-    text-line-spacing: @landcover-line-spacing-size;
-    [way_pixels > 12000] {
-      text-size: @landcover-font-size-big;
-      text-wrap-width: @landcover-wrap-width-size-big;
-      text-line-spacing: @landcover-line-spacing-size-big;
-    }
-    [way_pixels > 48000] {
-      text-size: @landcover-font-size-bigger;
-      text-wrap-width: @landcover-wrap-width-size-bigger;
-      text-line-spacing: @landcover-line-spacing-size-bigger;
-    }
-    text-face-name: @oblique-fonts;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
-  [feature = 'place_locality'][zoom >= 16] {
-    text-name: "[name]";
-    text-size: 10;
-    text-fill: @placenames;
-    text-face-name: @book-fonts;
-    text-halo-fill: @standard-halo-fill;
-    text-halo-radius: @standard-halo-radius * 1.5;
-    text-wrap-width: 45; // 4.5 em
-    text-line-spacing: -0.8; // -0.08 em
-    text-margin: 7.0; // 0.7 em
-    [zoom >= 17] {
-      text-size: 12;
-      text-wrap-width: 60; // 5.0 em
-      text-line-spacing: -0.60; // -0.05 em
-      text-margin: 8.4; // 0.7 em
-      text-fill: @placenames-light;
-      text-halo-fill: white;
-    }
-  }
-
-  [feature = 'place_square'][zoom >= 17] {
-    text-name: "[name]";
-    text-size: 11;
-    text-face-name: @book-fonts;
-    text-halo-fill: @standard-halo-fill;
-    text-halo-radius: @standard-halo-radius * 1.5;
-    text-wrap-width: 45; // 4.5 em
-    text-line-spacing: -0.8; // -0.08 em
-    text-margin: 7.0; // 0.7 em
-  }
-
   [feature = 'amenity_library'],
   [feature = 'tourism_museum'],
   [feature = 'amenity_theatre'],
