@@ -732,45 +732,6 @@
     marker-fill: @man-made-icon;
   }
 
-  [feature = 'natural_peak'][zoom >= 11] {
-    marker-file: url('symbols/natural/peak.svg');
-    marker-fill: @landform-color;
-    marker-clip: false;
-  }
-
-  [feature = 'natural_volcano'][zoom >= 11] {
-    marker-file: url('symbols/natural/peak.svg');
-    marker-fill: #d40000;
-    marker-clip: false;
-  }
-
-  [feature = 'natural_saddle'][zoom >= 15] {
-    marker-file: url('symbols/natural/saddle.svg');
-    marker-fill: @landform-color;
-    marker-clip: false;
-  }
-
-  [feature = 'natural_spring'][zoom >= 14] {
-    marker-file: url('symbols/spring.svg');
-    marker-clip: false;
-  }
-
-  [feature = 'natural_cave_entrance'][zoom >= 15] {
-    marker-file: url('symbols/natural/cave.svg');
-    marker-clip: false;
-  }
-
-  [feature = 'waterway_waterfall'] {
-    [zoom >= 13][height > 20],
-    [zoom >= 14][height > 10],
-    [zoom >= 15][name != null],
-    [zoom >= 16] {
-      marker-file: url('symbols/waterfall.svg');
-      marker-clip: false;
-      marker-fill: @water-text;
-    }
-  }
-
   [feature = 'military_bunker'][zoom >= 17] {
     marker-file: url('symbols/bunker.svg');
     marker-fill: @man-made-icon;
@@ -964,29 +925,13 @@
     text-halo-fill: @standard-halo-fill;
   }
 
-  [feature = 'natural_peak'][zoom >= 13],
-  [feature = 'natural_volcano'][zoom >= 13],
-  [feature = 'natural_saddle'][zoom >= 15],
   [feature = 'tourism_viewpoint'][zoom >= 16] {
     text-name: "[name]";
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
     text-line-spacing: @standard-line-spacing-size;
     text-fill: darken(@landform-color, 30%);
-    [feature = 'natural_volcano'] { text-fill: #d40000; }
-    text-dy: 7;
-    [feature = 'tourism_viewpoint'] { text-dy: 11; }
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
-  [feature = 'natural_cape'][zoom >= 14] {
-    text-name: "[name]";
-    text-fill: #000;
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
+    text-dy: 11;
     text-face-name: @standard-font;
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
@@ -1006,28 +951,10 @@
       text-dy: 11;
   }
 
-  [feature = 'waterway_waterfall'] {
-    [zoom >= 13][height > 20],
-    [zoom >= 14][height > 10],
-    [zoom >= 15][name != null],
-    [zoom >= 16] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: @water-text;
-      text-dy: 10;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-    }
-  }
-
   [feature = 'power_generator']['generator:source' = 'wind'][location != 'rooftop'][location != 'roof'][zoom >= 17],
   [feature = 'power_generator']['generator:source' = 'wind'][location = null][zoom >= 17],
   [feature = 'power_generator']['generator:source' = 'wind'][zoom >= 19],
   [feature = 'historic_city_gate'][zoom >= 17],
-  [feature = 'natural_cave_entrance'][zoom >= 15],
   [feature = 'man_made_mast'][zoom >= 18],
   [feature = 'man_made_tower'][zoom >= 17],
   [feature = 'man_made_storage_tank'][zoom >= 18],
@@ -1044,21 +971,8 @@
     text-wrap-width: @standard-wrap-width;
     text-line-spacing: @standard-line-spacing-size;
     text-fill: darken(@man-made-icon, 20%);
-    [feature = 'power_generator']['generator:source' = 'wind'],
-    [feature = 'historic_city_gate'],
-    [feature = 'man_made_mast'],
-    [feature = 'man_made_tower'],
-    [feature = 'man_made_communications_tower'],
-    [feature = 'man_made_telescope'],
-    [feature = 'man_made_water_tower'],
-    [feature = 'man_made_storage_tank'],
-    [feature = 'man_made_silo'],
-    [feature = 'man_made_chimney'],
-    [feature = 'man_made_crane'] {
+    [feature != 'man_made_waste_water_plant'] {
       text-dy: 10;
-    }
-    [feature = 'natural_cave_entrance'] {
-      text-dy: 11;
     }
     text-face-name: @standard-font;
     text-halo-radius: @standard-halo-radius;
@@ -1409,18 +1323,6 @@
         text-fill: darken(@pitch, 40%);
       }
     }
-  }
-
-  [feature = 'natural_spring'][zoom >= 16] {
-    text-name: "[name]";
-    text-size: 10;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: @water-text;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-    text-dy: 6;
   }
 
   [feature = 'amenity_atm'][zoom >= 19],
@@ -1783,21 +1685,6 @@
     text-halo-fill: @standard-halo-fill;
   }
 
-  [feature = 'natural_tree'][zoom >= 17] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: green;
-    text-dy: 7;
-    [zoom >= 18] { text-dy: 8; }
-    [zoom >= 19] { text-dy: 11; }
-    [zoom >= 20] { text-dy: 18; }
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-
   [feature = 'amenity_casino'][zoom >= 17] {
     text-name: "[name]";
     text-fill: @amenity-brown;
@@ -1910,64 +1797,5 @@
     text-face-name: @standard-font;
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
-  }
-}
-
-#trees [zoom >= 16] {
-  ::canopy {
-    opacity: 0.3;
-    [natural = 'tree_row'] {
-      line-color: green;
-      line-cap: round;
-      line-width: 2.5;
-      [zoom >= 17] {
-        line-width: 5;
-      }
-      [zoom >= 18] {
-        line-width: 10;
-      }
-      [zoom >= 19] {
-        line-width: 15;
-      }
-      [zoom >= 20] {
-        line-width: 30;
-      }
-    }
-    [natural = 'tree'] {
-      [zoom >= 18] {
-        marker-fill: green;
-        marker-allow-overlap: true;
-        marker-line-width: 0;
-        marker-ignore-placement: true;
-        marker-width: 10;
-        marker-height: 10;
-      }
-      [zoom >= 19] {
-        marker-width: 15;
-        marker-height: 15;
-      }
-      [zoom >= 20] {
-        marker-width: 30;
-        marker-height: 30;
-      }
-    }
-  }
-  [natural = 'tree']::trunk {
-    [zoom >= 18] {
-      trunk/marker-fill: #b27f36;
-      trunk/marker-allow-overlap: true;
-      trunk/marker-line-width: 0;
-      trunk/marker-width: 2;
-      trunk/marker-height: 2;
-      trunk/marker-ignore-placement: true;
-    }
-    [zoom >= 19] {
-      trunk/marker-width: 3;
-      trunk/marker-height: 3;
-    }
-    [zoom >= 20] {
-      trunk/marker-width: 6;
-      trunk/marker-height: 6;
-    }
   }
 }

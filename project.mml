@@ -48,6 +48,7 @@ Stylesheet:
   - style/leisure.mss
   - style/shops.mss
   - style/transportation_symbols.mss
+  - style/natural.mss
   - style/ferry-routes.mss
   - style/aerialways.mss
   - style/admin.mss
