@@ -16,6 +16,8 @@ BEGIN {
 	id = ""
 	id_counter = 0
 	pat_nr = 0
+	clip = FALSE
+	canvas = FALSE
 }
 
 #! /bin/awk -f
@@ -29,6 +31,13 @@ BEGIN {
 			printf("ERROR: Found two patterns with different tile sizes\n") >> "/dev/stderr"
 			exit
 		}
+	} else if (/^Workaround: /) {
+		if (split($0, workaround, /[, ]/) > 2) {
+			off_x = workaround[2]
+			off_y = workaround[3]
+		}
+		if (/clip/) clip = TRUE
+		if (/canvas/) canvas = TRUE
 	} else if (/^Style: /) {
 		finish_pattern()
 		Pattern[pat_nr, "style"] = substr($0, 8)
@@ -80,8 +89,14 @@ BEGIN {
 	} else if (/.+/) {
 		if (split($0, xy, ",") != 2)
 			printf("ERROR: invalid coordinate %s\n", $0) >> "/dev/stderr"
-		Pattern[pat_nr, i, "x"] = xy[1]
-		Pattern[pat_nr, i, "y"] = xy[2]
+		x = xy[1] + off_x
+		y = xy[2] + off_y
+		if (clip == TRUE) {
+			x = (x + size) % size
+			y = (y + size) % size
+		}
+		Pattern[pat_nr, i, "x"] = x
+		Pattern[pat_nr, i, "y"] = y
 		i++
 	}
 }
@@ -149,6 +164,10 @@ END {
 		printf("  </defs>\n")
 	}
 
+	if (canvas == TRUE) {
+		printf("  <rect id=\"mapnik_workaround\" width=\"100%\" height=\"100%\" fill=\"none\"/>\n")
+	}
+
 	for (pat_nr = 0; pat_nr < pattern_count; pat_nr++) {
 		current_x = 0
 		current_y = 0
@@ -174,9 +193,23 @@ END {
 					for (j = 0; j < Pattern[p, "coords"]; j++) {
 						symbol_x = Pattern[p, j, "x"]
 						symbol_y = Pattern[p, j, "y"]
-						if (y <= symbol_y + top || y >= symbol_y + bottom || x2 <= symbol_x + left || x1 >= symbol_x + right) {
+						# Try to move the symbol to an adjacent tile if there is no match
+						if (symbol_x + right < x1) {
+							symbol_x += size
+						} else if (symbol_x + left > x2) {
+							symbol_x -= size
+						}
+						if (symbol_y + bottom < y) {
+							symbol_y += size
+						} else if (symbol_y + top > y) {
+							symbol_y -= size
+						}
+						# Quick check if the line falls inside the boundig box of the symbol
+						if (y <= symbol_y + top || y >= symbol_y + bottom ||
+						    x2 <= symbol_x + left || x1 >= symbol_x + right) {
 							continue
 						}
+						# Apply the casing
 						index_y = int(y) - int(symbol_y)
 						casing_left = Pattern[p, "casing", index_y, "left"]
 						casing_right = Pattern[p, "casing", index_y, "right"]
@@ -199,26 +232,57 @@ END {
 						}
 					}
 				}
+				# Draw te line, wrapping around on the tile edge
 				if (x2 - x1 > 1) {
-					move_xy(x1, y, HORIZONTAL)
-					printf(" h%g", x2 - x1)
-					current_x = x2
+					if (x2 > size) {
+						move_xy(x1, y, HORIZONTAL)
+						printf(" h%g", size - x1)
+						current_x = size
+						move_xy(0, y, HORIZONTAL)
+						printf(" h%g", x2 - size)
+						current_x = x2 - size
+					} else {
+						move_xy(x1, y, HORIZONTAL)
+						printf(" h%g", x2 - x1)
+						current_x = x2
+					}
 				}
 			}
 			printf("\"/>\n")
 		} else {
 			printf("  <path %s d=\"", Pattern[pat_nr, "style"])
 			for (i = 0; i < Pattern[pat_nr, "coords"]; i++) {
-				if (Pattern[pat_nr, "path"] ~ /[vh] *-?[0-9\.]+/) {
+				if (Pattern[pat_nr, "path"] ~ /^[vh] *-?[0-9\.]+$/) {
 					len = substr(Pattern[pat_nr, "path"], 2) +0
+					x1 = Pattern[pat_nr, i, "x"]
+					y1 = Pattern[pat_nr, i, "y"]
 					if (Pattern[pat_nr, "path"] ~ /v.*/) {
-						move_xy(Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], VERTICAL)
-						current_y += len
+						if (clip == TRUE && y1 + len > size - Pattern[pat_nr, "off_y"]) {
+							move_xy(x1, y1, VERTICAL)
+							printf(" v%g", size - Pattern[pat_nr, "off_y"] - y1)
+							current_y = size
+							move_xy(x1, 0, VERTICAL)
+							printf(" v%g", y1 + len - size + Pattern[pat_nr, "off_y"])
+							current_y = y1 + len - size + Pattern[pat_nr, "off_y"]
+						} else {
+							move_xy(x1, y1, VERTICAL)
+							current_y += len
+							printf(" v%g", len)
+						}
 					} else {
-						move_xy(Pattern[pat_nr, i, "x"], Pattern[pat_nr, i, "y"], HORIZONTAL)
-						current_x += len
+						if (clip == TRUE && x1 + len > size - Pattern[pat_nr, "off_x"]) {
+							move_xy(x1, y1, HORIZONTAL)
+							printf(" h%g", size - Pattern[pat_nr, "off_x"] - x1)
+							current_x = size
+							move_xy(0, y1, HORIZONTAL)
+							printf(" h%g", x1 + len - size + Pattern[pat_nr, "off_x"])
+							current_x = x1 + len - size + Pattern[pat_nr, "off_x"]
+						} else {
+							move_xy(x1, y1, HORIZONTAL)
+							current_x += len
+							printf(" h%g", len)
+						}
 					}
-					printf(" %s", Pattern[pat_nr, "path"])
 				} else {
 					printf("\nM%g,%g %s", Pattern[pat_nr, i, "x"] + Pattern[pat_nr, "off_x"], Pattern[pat_nr, i, "y"] + Pattern[pat_nr, "off_y"], Pattern[pat_nr, "path"])
 				}

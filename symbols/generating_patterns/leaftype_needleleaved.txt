@@ -1,4 +1,5 @@
 Size: 256
+Workaround: -1,-66 canvas clip
 Style: stroke-width="1" stroke="#6b8d5e" fill="none"
 Path: m3.5,13 v-4.5 m-3,0 v-.4093 l2.8465,-7.5907 h.307 l2.8465,7.5907 v.4093 z
 245,-12
