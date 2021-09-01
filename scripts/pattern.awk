@@ -292,5 +292,5 @@ END {
 		}
 	}
 
-	printf("</svg>")
+	printf("</svg>\n")
 }
