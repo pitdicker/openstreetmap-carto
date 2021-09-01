@@ -1,7 +1,7 @@
 # Vector pattern generation
 This file contains some documentation on the patterns in `symbols/landcover`.
 Some of the patterns are created by hand, others are generated.
-Most of the more complex patterns are generated with `pattern.awk` from a text file.
+Most of the more complex patterns are generated with `generate_pattern.awk` from a text file.
 
 ### Pattern text file format
 The first line of a pattern text file has the tile size.
@@ -48,7 +48,7 @@ Tiles of 128×128px.
 Square dots of 1px in a triangular grid with a 6px distance (color: `#0e5500` and 57.5% opacity).
 Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,128,jdp32360;gv,6,32,32;rd,1,0,0,pixel,0.125,4,4,0,jdp23814,749d6c,aedea3;)
 The positions are rounded down, sorted by y-coordinates, and saved in `plant_nursery.txt`.
-Final svg generated with `pattern.awk` from `plant_nursery.txt`.
+Final svg generated with `generate_pattern.awk` from `plant_nursery.txt`.
 
 ### `salt_dots.svg`
 Tiles of 256×256px.
@@ -56,7 +56,7 @@ Dots in a random pattern (color: `#ffffff`).
 Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,256,jdp68152;g,5,32,32;rx,25,2,32,32;rx,25,2,32,32;rx,25,2,32,32;rd,0,0,0,dot,0.125,10,9,0,jdp48264,ffffff,cdebb0;).
 The positions are rounded to two decimals, repeated across tile boundaries, and saved in `salt_dots.txt`.
 The dots are offset by -0.05,-0.05px to align with a pre-existing svg.
-Final svg generated with `pattern.awk` from `salt_dots.txt`.
+Final svg generated with `generate_pattern.awk` from `salt_dots.txt`.
 
 ### `beach.svg`
 Tiles of 128×128px.
@@ -64,7 +64,7 @@ Dots in a random pattern (color: `#685d45` and 40% opacity).
 Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,128,jdp59980;g,2.25,16,16;rx,250,2,8,8;rx,250,2,8,8;s,jdp58799;s,jdp49103;rx,250,2,8,8;rd,0,0,1,scree,0.1,5,10,0,jdp31724,dbb677,fff1ba;), rounded to two decimals and repeated across tile boundaries.
 Most of the dots have a radius of 0.85px, but some have a radius of 0.8px or 1px.
 Their distribution is based on the appearance of a pre-existing svg, with the positions saved in `beach.txt`.
-Final svg generated with `pattern.awk` from `beach.txt`.
+Final svg generated with `generate_pattern.awk` from `beach.txt`.
 
 ### `scree.svg`
 Tiles of 256×256px.
@@ -72,7 +72,7 @@ Dots and lines in a random pattern (color: `#cbc9c6`).
 Positions generated with jsdotpattern, command sequence unknown.
 Most of the dots have a radius of 1px, but some have a radius of 1.2px are a short line 0.8px wide.
 Their distribution is based on the appearance of a pre-existing svg, with the positions saved in `scree.txt`.
-Final svg generated with `pattern.awk` from `scree.txt`.
+Final svg generated with `generate_pattern.awk` from `scree.txt`.
 
 ### `reef.svg`
 Tiles of 256×256px.
@@ -115,61 +115,61 @@ Tiles of 256×256px.
 Random pattern of two symbols with a 30px distance (color: `#6b8d5e`).
 Positions originally generated with jsdotpattern, command sequence not recorded.
 Coordinates are recreated from a pre-existing svg, positions saved in `leaftype_unknown.txt`.
-Final svg generated with `pattern.awk` from `leaftype_unknown.txt`.
+Final svg generated with `generate_pattern.awk` from `leaftype_unknown.txt`.
 
 ### `leaftype_broadleaved.svg`
 Tiles of 256×256px.
 Based on `leaftype_unknown.svg`, but with only one symbol (color: `#6b8d5e`).
-Final svg generated with `pattern.awk` from `leaftype_broadleaved.txt`.
+Final svg generated with `generate_pattern.awk` from `leaftype_broadleaved.txt`.
 
 ### `leaftype_leafless.svg`
 Tiles of 256×256px.
 Based on `leaftype_unknown.svg`, but with only one symbol (color: `#6b8d5e`).
-Final svg generated with `pattern.awk` from `leaftype_leafless.txt`.
+Final svg generated with `generate_pattern.awk` from `leaftype_leafless.txt`.
 
 ### `leaftype_mixed.svg`
 Tiles of 256×256px.
 Based on `leaftype_unknown.svg`, with two other symbols (color: `#6b8d5e`).
-Final svg generated with `pattern.awk` from `leaftype_mixed.txt`.
+Final svg generated with `generate_pattern.awk` from `leaftype_mixed.txt`.
 
 ### `leaftype_needleleaved.svg`
 Tiles of 256×256px.
 Based on `leaftype_unknown.svg`, but with only one symbol (color: `#6b8d5e`).
-Final svg generated with `pattern.awk` from `leaftype_needleleaved.txt`.
+Final svg generated with `generate_pattern.awk` from `leaftype_needleleaved.txt`.
 
 ### `quarry.svg`
 Tiles of 256×256px.
 Symbols repeated in a triangular grid with a 45px distance (color: `#e6e6e6`).
 Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,128,jdp32360;gv,6,32,32;rd,1,0,0,pixel,0.125,4,4,0,jdp23814,749d6c,aedea3;)
 The positions are rounded down and saved in `quarry.txt`.
-Final svg generated with `pattern.awk` from `quarry.txt`.
+Final svg generated with `generate_pattern.awk` from `quarry.txt`.
 
 ### `salt_pond.svg`
 Tiles of 128×128px.
 Symbols repeated in a triangular grid with a 17px distance (color: `#ffffff`).
 Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,128,jdp58391;gv,17,32,32;)
 The positions are rounded down and saved in `salt_pond.txt`.
-Final svg generated with `pattern.awk` from `salt_pond.txt`.
+Final svg generated with `generate_pattern.awk` from `salt_pond.txt`.
 
 ### `scrub.svg`
 Tiles of 512×512px.
 Random pattern of scrub symbols (color: `#b0be93`).
 Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,512,jdp60679;g,24,64,64;rx,25,2,64,64;rx,25,2,64,64;rx,25,2,64,64;rx,25,2,64,64;rd,1,1,0,scrub2,1,5,5,0,jdp97432,b0be93,c8d7ab;).
 The positions are rounded down, repeated across tile boundaries, and saved in `scrub.txt`.
-Final svg generated with `pattern.awk` from `scrub.txt`.
+Final svg generated with `generate_pattern.awk` from `scrub.txt`.
 
 ### `vineyard.svg`
 Tiles of 32x32px.
 Short vertical lines in a triangular pattern (color: `#759e6c` and 38% opacity).
 Positions have been recreated after a pre-existing raster image.
-Final svg generated with `pattern.awk` from `vineyard.txt`.
+Final svg generated with `generate_pattern.awk` from `vineyard.txt`.
 
 ### `wetland.svg`
 Tiles of 256×256px.
 Random pattern of short horizontal lines (color: `#4aa5fa`).
 Positions originally generated with jsdotpattern, command sequence not recorded.
 Coordinates are recreated from a pre-existing svg, positions saved in `wetland.txt`.
-Final svg generated with `pattern.awk` from `wetland.txt`.
+Final svg generated with `generate_pattern.awk` from `wetland.txt`.
 
 
 ## Wetland patterns
@@ -179,7 +179,7 @@ The wetland patterns put different plant symbols on top of the blue wetland line
 The symbols have a ~2px casing around them, rounded to the nearest pixel boundary.
 If there is only 1 pixel left of the lines in the covered wetland pattern, that part of the line is be removed.
 
-`pattern.awk` has some complexity to deal with this, but only in a very basic way. It is hard-coded for the wetland patterns, and every shape has the outline of its casing manually recorded in the text file.
+`generate_pattern.awk` has some complexity to deal with this, but only in a very basic way. It is hard-coded for the wetland patterns, and every shape has the outline of its casing manually recorded in the text file.
 
 A preview of the various shapes is available in `wetland_casings.svg` (created by adding a copy of the shape with `stroke-width="4"`, and eyeballing the closest pixel boundary).
 
@@ -188,27 +188,27 @@ Tiles of 512x512px.
 Random pattern of two grass symbols (color: `#73b386`), on top of the `wetland512` pattern.
 Positions originally generated with jsdotpattern, command sequence not recorded.
 Coordinates are recreated from a pre-existing svg, positions saved in `wetland_marsh.txt`.
-Final svg generated with `pattern.awk` from `marsh.txt` and `wetland512.txt`.
+Final svg generated with `generate_pattern.awk` from `marsh.txt` and `wetland512.txt`.
 
 ### `wetland_reed.svg`
 Tiles of 512x512px.
 Based on `marsh.txt`, but with two reed symbols (color: `#73b386`).
-Final svg generated with `pattern.awk` from `reed.txt` and `wetland512.txt`.
+Final svg generated with `generate_pattern.awk` from `reed.txt` and `wetland512.txt`.
 
 ### `wetland_swamp.svg`
 Tiles of 512x512px.
 Based on `marsh.txt`, but with the two symbols of `leaftype_unknown` (color: `#93b685`).
-Final svg generated with `pattern.awk` from `swamp.txt` and `wetland512.txt`.
+Final svg generated with `generate_pattern.awk` from `swamp.txt` and `wetland512.txt`.
 
 ### `wetland_bog.svg`
 Tiles of 512x512px.
 Based on `marsh.txt`, but with only one symbol (color: `#73b386`).
-Final svg generated with `pattern.awk` from `bog.txt` and `wetland512.txt`.
+Final svg generated with `generate_pattern.awk` from `bog.txt` and `wetland512.txt`.
 
 ### `wetland_mangrove.svg`
 Tiles of 512x512px.
 Based on `marsh.txt`, but with only one symbol (color: `#709b6f`).
-Final svg generated with `pattern.awk` from `mangrove.txt` and `wetland512.txt`.
+Final svg generated with `generate_pattern.awk` from `mangrove.txt` and `wetland512.txt`.
 
 ### Casing format in text file
 The wetland `.txt` files contain a `casing:` line. Example:
