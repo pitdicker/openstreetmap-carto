@@ -63,6 +63,7 @@ BEGIN {
 
 		id = FILENAME
 		id_counter++
+		sub(/.*\//, "", id)
 		sub(/\.txt/, id_counter, id)
 		Pattern[pat_nr, "id"] = id
 	} else if (/^Casing: /) {
