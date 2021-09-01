@@ -166,7 +166,7 @@ END {
 	}
 
 	if (canvas == TRUE) {
-		printf("  <rect id=\"mapnik_workaround\" width=\"100%\" height=\"100%\" fill=\"none\"/>\n")
+		printf("  <rect id=\"mapnik_workaround\" width=\"%i\" height=\"%i\" fill=\"none\"/>\n", size, size)
 	}
 
 	for (pat_nr = 0; pat_nr < pattern_count; pat_nr++) {

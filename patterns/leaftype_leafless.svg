@@ -4,7 +4,7 @@
     <path id="leaftype_leafless1" stroke-width="1" stroke="#6b8d5e" stroke-linecap="round" d="m0.5,1.5 v4 m0,0 h3 m0,0 v6.5 v-11.5 m0,8 h3 m0,0 v-5"/>
     <path id="leaftype_leafless2" stroke-width="1" stroke="#6b8d5e" stroke-linecap="round" d="m0.5,3.5 v5 m0,0 h3 m0,0 v3.5 v-11.5 m0,5 h3 m0,0 v-4"/>
   </defs>
-  <rect id="mapnik_workaround" width="100%" height="100%" fill="none"/>
+  <rect id="mapnik_workaround" width="256" height="256" fill="none"/>
   <use x="244" y="178" xlink:href="#leaftype_leafless1"/>
   <use x="186" y="180" xlink:href="#leaftype_leafless1"/>
   <use x="150" y="182" xlink:href="#leaftype_leafless1"/>
