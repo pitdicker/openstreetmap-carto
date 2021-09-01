@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" width="800" height="400" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="400" viewBox="0 0 80 40">
 <defs>
   <g id="grid">
     <path d="m-10,-10 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20 m1,0 v-20 m1,0 v20" stroke-width=".05" stroke="#ccc" fill="none"/>
