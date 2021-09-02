@@ -44,10 +44,9 @@ Horizontal lines with a width of 2px, repeated every 4px (color: `#aad3df`).
 ## Random dot patterns
 
 ### `plant_nursery.svg`
-Tiles of 128×128px.
+Tiles of 30×30.
 Square dots of 1px in a triangular grid with a 6px distance (color: `#0e5500` and 57.5% opacity).
-Positions generated with [jsdotpattern](http://www.imagico.de/map/jsdotpattern.php#x,128,jdp32360;gv,6,32,32;rd,1,0,0,pixel,0.125,4,4,0,jdp23814,749d6c,aedea3;)
-The positions are rounded down, sorted by y-coordinates, and saved in `plant_nursery.txt`.
+Vertical spacing is ½√3=5.2; rounded down to 5px.
 Final svg generated with `generate_pattern.awk` from `plant_nursery.txt`.
 
 ### `salt_dots.svg`
