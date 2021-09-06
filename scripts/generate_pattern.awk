@@ -255,6 +255,10 @@ END {
 			for (i = 0; i < Pattern[pat_nr, "coords"]; i++) {
 				if (Pattern[pat_nr, "path"] ~ /^[vh] *-?[0-9\.]+$/) {
 					len = substr(Pattern[pat_nr, "path"], 2) +0
+					if (len == 0) {
+						# mapnik fails to render zero-length (sub)paths
+						len = 0.0001
+					}
 					x1 = Pattern[pat_nr, i, "x"]
 					y1 = Pattern[pat_nr, i, "y"]
 					if (Pattern[pat_nr, "path"] ~ /v.*/) {

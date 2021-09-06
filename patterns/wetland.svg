@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect id="mapnik_workaround" width="256" height="256" fill="none"/>
   <path stroke="#4aa5fa" stroke-width=".8" d="
 M243,47.5 h7 m-231,0 h7 m16,0 h7 m16,0 h7 m27,0 h7
 M113,48.5 h7 m57,0 h7 m14,0 h7
