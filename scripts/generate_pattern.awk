@@ -16,7 +16,6 @@ BEGIN {
 	id = ""
 	id_counter = 0
 	pat_nr = 0
-	clip = FALSE
 	canvas = FALSE
 }
 
@@ -36,7 +35,6 @@ BEGIN {
 			off_x = workaround[2]
 			off_y = workaround[3]
 		}
-		if (/clip/) clip = TRUE
 		if (/canvas/) canvas = TRUE
 	} else if (/^Style: /) {
 		finish_pattern()
@@ -92,7 +90,7 @@ BEGIN {
 			printf("ERROR: invalid coordinate %s\n", $0) >> "/dev/stderr"
 		x = xy[1] + off_x
 		y = xy[2] + off_y
-		if (clip == TRUE) {
+		if (off_x != 0 || off_y != 0) {
 			x = (x + size) % size
 			y = (y + size) % size
 		}
@@ -152,7 +150,6 @@ END {
 	if (use_def == TRUE) {
 		xlink = " xmlns:xlink=\"http://www.w3.org/1999/xlink\""
 	}
-	printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
 	printf("<svg xmlns=\"http://www.w3.org/2000/svg\"%s width=\"%i\" height=\"%i\" viewBox=\"0 0 %i %i\">\n", xlink, size, size, size, size)
 
 	if (use_def == TRUE) {
@@ -266,7 +263,7 @@ END {
 					x1 = Pattern[pat_nr, i, "x"]
 					y1 = Pattern[pat_nr, i, "y"]
 					if (Pattern[pat_nr, "path"] ~ /v.*/) {
-						if (clip == TRUE && y1 + len > size - Pattern[pat_nr, "off_y"]) {
+						if (y1 + len > size - Pattern[pat_nr, "off_y"]) {
 							move_xy(x1, y1, VERTICAL)
 							printf(" v%g", size - Pattern[pat_nr, "off_y"] - y1)
 							current_y = size
@@ -279,7 +276,7 @@ END {
 							printf(" v%g", len)
 						}
 					} else {
-						if (clip == TRUE && x1 + len > size - Pattern[pat_nr, "off_x"]) {
+						if (x1 + len > size - Pattern[pat_nr, "off_x"]) {
 							move_xy(x1, y1, HORIZONTAL)
 							printf(" h%g", size - Pattern[pat_nr, "off_x"] - x1)
 							current_x = size

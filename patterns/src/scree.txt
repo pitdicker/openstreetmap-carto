@@ -1,7 +1,7 @@
 Size: 256
-Workaround: -73,110 clip canvas
-Style: stroke-linecap="round" stroke-width="1" stroke="#cbc9c6"
+Workaround: -73,110 canvas
 Path: m0,0 h0
+Style: stroke-linecap="round" stroke-width="1" stroke="#cbc9c6"
 0.84,210.24
 1.55,88.38
 1.82,71.03
@@ -3976,8 +3976,8 @@ Path: m0,0 h0
 254.43,234.13
 254.65,109.10
 255.42,11.50
-Style: stroke-linecap="round" stroke-width="1.2" stroke="#cbc9c6"
 Path: m0,0 h0
+Style: stroke-linecap="round" stroke-width="1.2" stroke="#cbc9c6"
 0.01,192.81
 0.71,207.38
 0.79,106.44
@@ -4953,8 +4953,8 @@ Path: m0,0 h0
 255.38,170.73
 255.55,159.13
 255.66,182.35
-Style: stroke-linecap="round" stroke-width=".8" stroke="#cbc9c6"
 Path: m.3,-.4 l.1,.4
+Style: stroke-linecap="round" stroke-width=".8" stroke="#cbc9c6"
 0.22,190.33
 0.30,54.66
 0.39,174.61

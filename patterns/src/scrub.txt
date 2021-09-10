@@ -1,5 +1,5 @@
 Size: 512
-Workaround: -45,-3 clip
+Workaround: -45,-3
 Style: stroke-width="1" stroke="#b0be93"
 Path: m-4,5.5 h7 m-3.5,0 v-5.5 m0,5.7 -2.5,-3.7 m5,0 -2.5,3.7
 11,5

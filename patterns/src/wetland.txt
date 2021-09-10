@@ -1,7 +1,7 @@
 Size: 256
-Workaround: -24,47 clip canvas
-Style: stroke="#4aa5fa" stroke-width=".8"
+Workaround: -116,47 canvas
 Path: m0,0 h7
+Style: stroke="#4aa5fa" stroke-width=".8"
 11,0.5
 43,0.5
 66,0.5
