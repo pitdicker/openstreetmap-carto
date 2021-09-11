@@ -235,6 +235,10 @@ END {
 				}
 				# Draw te line, wrapping around on the tile edge
 				if (x2 - x1 > 1) {
+					if (x1 > size) {
+						x1 -= size
+						x2 -= size
+					}
 					if (x2 > size) {
 						move_xy(x1, y, HORIZONTAL)
 						printf(" h%g", size - x1)

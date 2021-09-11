@@ -34,7 +34,7 @@ Every line has a width of ½√2px (color: `#ff5555` and 12% opacity).
 ### `grey_vertical_hatch.png`
 Tiles of 32×32px.
 Vertical lines with a distance of 16px on top of a background of `#8e8e8e` with 14% opacity.
-Every line has a width of 3px (color: `#8e8e8e` and 33% opacity).
+Every line has a width of 3px (color: `#8e8e8e` and 32.9% opacity).
 
 ### `intermittent_water.png`
 Tiles of 32×32px.
@@ -108,6 +108,8 @@ A single symbol, repeated in a 32×32 grid. (color: `#88b78e`).
 ## Patterns with symbols, generated positions
 
 A preview of the different forest symbols is available in `forest.svg`.
+Note that the forest patterns don't have 40% opacity applied to the pattern, but at the Mapnik layer/attachment level.
+This is to handle overlappings forest areas.
 
 ### `leaftype_unknown.svg`
 Tiles of 256×256px.
@@ -172,7 +174,7 @@ Final svg generated with `generate_pattern.awk` from `wetland.txt`.
 
 
 ## Wetland patterns
-All wetland tiles are 512×512px. The basis is `wetland512.txt`, which has the coordinates of `wetland.txt` repeated the cover the larger size.
+All wetland tiles are 512×512px. The basis is `wetland512.txt`, which has the coordinates of `wetland.txt` repeated to cover the larger size.
 
 The wetland patterns put different plant symbols on top of the blue wetland lines.
 The symbols have a ~2px casing around them, rounded to the nearest pixel boundary.
@@ -196,7 +198,7 @@ Final svg generated with `generate_pattern.awk` from `reed.txt` and `wetland512.
 
 ### `wetland_swamp.svg`
 Tiles of 512x512px.
-Based on `marsh.txt`, but with the two symbols of `leaftype_unknown` (color: `#93b685`).
+Based on `marsh.txt`, but with the two symbols of `leaftype_unknown` (color: `#6b8d5e` and 40% opacity).
 Final svg generated with `generate_pattern.awk` from `swamp.txt` and `wetland512.txt`.
 
 ### `wetland_bog.svg`

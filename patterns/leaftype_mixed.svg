@@ -5,9 +5,6 @@
     <path id="leaftype_mixed2" stroke-width="1" stroke="#6b8d5e" fill="none" d="m3.5,13 v-4.5 m-3,0 v-.4093 l2.8465,-7.5907 h.307 l2.8465,7.5907 v.4093 z"/>
   </defs>
   <rect id="mapnik_workaround" width="256" height="256" fill="none"/>
-  <use x="244" y="178" xlink:href="#leaftype_mixed1"/>
-  <use x="186" y="180" xlink:href="#leaftype_mixed1"/>
-  <use x="150" y="182" xlink:href="#leaftype_mixed1"/>
   <use x="112" y="194" xlink:href="#leaftype_mixed1"/>
   <use x="46" y="196" xlink:href="#leaftype_mixed1"/>
   <use x="9" y="201" xlink:href="#leaftype_mixed1"/>
