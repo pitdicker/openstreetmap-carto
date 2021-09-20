@@ -17,6 +17,8 @@
 }
 
 #icesheet-poly {
+  comp-op: dst-over;
+
   [zoom >= 5] {
     polygon-fill: @glacier;
   }

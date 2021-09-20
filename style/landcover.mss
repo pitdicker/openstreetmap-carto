@@ -70,6 +70,8 @@
 
 #landcover-low-zoom[zoom < 10],
 #landcover[zoom >= 10] {
+  comp-op: dst-over;
+
   ::low-zoom[zoom < 12] {
     // Increase the lightness of the map by scaling color lightness to be in the 20%-100% range
     image-filters: scale-hsla(0,1, 0,1, 0.2,1, 0,1);
@@ -707,6 +709,8 @@
 
 /* man_made=cutline */
 #landcover-line {
+  comp-op: dst-over;
+
   [zoom >= 14] {
     line-width: 3;
     line-join: round;
