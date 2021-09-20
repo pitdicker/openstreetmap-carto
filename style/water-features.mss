@@ -64,32 +64,33 @@
   }
 }
 
-#piers-poly, #piers-line {
+#piers-poly {
   [man_made = 'pier'][zoom >= 12] {
-    #piers-poly {
-      polygon-fill: @land-color;
-    }
-    #piers-line {
-      line-width: 0.5;
-      line-color: @land-color;
-      line-cap: square;
-      [zoom >= 13] { line-width: 1; }
-      [zoom >= 15] { line-width: 2; }
-      [zoom >= 17] { line-width: 4; }
-    }
+    polygon-fill: @land-color;
   }
 
   [man_made = 'breakwater'][zoom >= 12],
   [man_made = 'groyne'][zoom >= 12] {
-    #piers-poly {
-      polygon-fill: @breakwater-color;
-    }
-    #piers-line {
-      line-width: 1;
-      line-color: @breakwater-color;
-      [zoom >= 13] { line-width: 2; }
-      [zoom >= 16] { line-width: 4; }
-    }
+    polygon-fill: @breakwater-color;
+  }
+}
+
+#piers-line {
+  [man_made = 'pier'][zoom >= 12] {
+    line-width: 0.5;
+    line-color: @land-color;
+    line-cap: square;
+    [zoom >= 13] { line-width: 1; }
+    [zoom >= 15] { line-width: 2; }
+    [zoom >= 17] { line-width: 4; }
+  }
+
+  [man_made = 'breakwater'][zoom >= 12],
+  [man_made = 'groyne'][zoom >= 12] {
+    line-width: 1;
+    line-color: @breakwater-color;
+    [zoom >= 13] { line-width: 2; }
+    [zoom >= 16] { line-width: 4; }
   }
 }
 
