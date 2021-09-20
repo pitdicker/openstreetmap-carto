@@ -133,6 +133,19 @@ Layer:
         ) AS ocean_lz
     properties:
       maxzoom: 9
+  - id: piers-cutout # cut out of the water layers
+    geometry: polygon
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, man_made
+          FROM planet_osm_polygon
+          WHERE man_made IN ('pier', 'breakwater', 'groyne')
+        ) AS piers_poly
+    properties:
+      minzoom: 12
   - id: ocean
     geometry: polygon
     <<: *extents
@@ -258,6 +271,19 @@ Layer:
     properties:
       cache-features: true
       minzoom: 10
+  - id: piers-poly # rendered behind previous layers
+    geometry: polygon
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, man_made
+          FROM planet_osm_polygon
+          WHERE man_made IN ('pier', 'breakwater', 'groyne')
+        ) AS piers_poly
+    properties:
+      minzoom: 12
   - id: landcover-area-symbols
     geometry: polygon
     <<: *extents
@@ -342,19 +368,6 @@ Layer:
         ) AS water_barriers_poly
     properties:
       minzoom: 13
-  - id: piers-poly
-    geometry: polygon
-    <<: *extents
-    Datasource:
-      <<: *osm2pgsql
-      table: |-
-        (SELECT
-            way, man_made
-          FROM planet_osm_polygon
-          WHERE man_made IN ('pier', 'breakwater', 'groyne')
-        ) AS piers_poly
-    properties:
-      minzoom: 12
   - id: piers-line
     geometry: linestring
     <<: *extents

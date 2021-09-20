@@ -64,7 +64,10 @@
   }
 }
 
-#piers-poly {
+#piers-poly, #piers-cutout {
+  #piers-poly { comp-op: dst-over; }
+  #piers-cutout { comp-op: dst-out; }
+
   [man_made = 'pier'][zoom >= 12] {
     polygon-fill: @land-color;
   }
