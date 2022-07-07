@@ -448,126 +448,6 @@
     marker-clip: false;
   }
 
-  [feature = 'man_made_mast']["tower:type" != 'lighting'],
-  [feature = 'man_made_mast']["tower:type" = 'lighting'][zoom >= 18]   {
-    [zoom >= 14][height >= 160],
-    [zoom >= 15][height >= 80],
-    [zoom >= 16][height >= 40],
-    [zoom >= 17][height >= 20],
-    [zoom >= 18] {
-      marker-file: url('symbols/man_made/mast.svg');
-      marker-fill: @man-made-icon;
-      marker-clip: false;
-      ["tower:type" = 'lighting'] {
-        marker-file: url('symbols/man_made/mast_lighting.svg');
-      }
-      ["tower:type" = 'communication'] {
-        marker-file: url('symbols/man_made/mast_communications.svg');
-      }
-    }
-  }
-
-  [feature = 'man_made_tower']["tower:type" = 'cooling'][zoom >= 15],
-  [feature = 'man_made_tower']["tower:type" = 'lighting'][zoom >= 18],
-  [feature = 'man_made_tower']["tower:type" = 'bell_tower'][zoom >= 18],
-  [feature = 'man_made_tower']["tower:type" = 'watchtower'][zoom >= 18],
-  [feature = 'man_made_tower']["tower:type" != 'cooling']["tower:type" != 'lighting']["tower:type" != 'bell_tower']["tower:type" != 'watchtower'] {
-    [zoom >= 14][height >= 160],
-    [zoom >= 15][height >= 80],
-    [zoom >= 16][height >= 40],
-    [zoom >= 17] {
-      marker-file: url('symbols/man_made/tower_generic.svg');
-      marker-fill: @man-made-icon;
-      marker-clip: false;
-      ["tower:type" = 'defensive'] {
-        marker-file: url('symbols/man_made/tower_defensive.svg');
-      }
-      ["tower:type" = 'observation'],
-      ["tower:type" = 'watchtower'] {
-        marker-file: url('symbols/man_made/tower_observation.svg');
-      }
-      ["tower:type" = 'bell_tower'] {
-        marker-file: url('symbols/man_made/bell_tower.svg');
-      }
-      ["tower:type" = 'cooling'] {
-        marker-file: url('symbols/man_made/tower_cooling.svg');
-      }
-      ["tower:construction" = 'lattice'] {
-        marker-file: url('symbols/man_made/tower_lattice.svg');
-      }
-      ["tower:construction" = 'dish'] {
-        marker-file: url('symbols/man_made/tower_dish.svg');
-      }
-      ["tower:construction" = 'dome'] {
-        marker-file: url('symbols/man_made/tower_dome.svg');
-      }
-      ["tower:type" = 'communication'] {
-        marker-file: url('symbols/man_made/tower_cantilever_communication.svg');
-        ["tower:construction" = 'lattice'] {
-          marker-file: url('symbols/man_made/tower_lattice_communication.svg');
-        }
-        ["tower:construction" = 'dish'] {
-          marker-file: url('symbols/man_made/tower_dish.svg');
-        }
-        ["tower:construction" = 'dome'] {
-          marker-file: url('symbols/man_made/tower_dome.svg');
-        }
-      }
-      ["tower:type" = 'lighting'] {
-        marker-file: url('symbols/man_made/tower_lighting.svg');
-        ["tower:construction" = 'lattice'] {
-          marker-file: url('symbols/man_made/tower_lattice_lighting.svg');
-        }
-      }
-    }
-  }
-
-  [feature = 'man_made_communications_tower'][zoom >= 14] {
-    marker-file: url('symbols/man_made/communications_tower.svg');
-    marker-fill: @man-made-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'man_made_chimney'] {
-    [zoom >= 16][height > 50],
-    [zoom >= 17][height > 30],
-    [zoom >= 18] {
-      marker-file: url('symbols/man_made/chimney.svg');
-      marker-fill: @man-made-icon;
-      marker-clip: false;
-    }
-  }
-
-  [feature = 'man_made_crane'] {
-    [zoom >= 16][height > 50],
-    [zoom >= 17] {
-      marker-file: url('symbols/man_made/crane.svg');
-      marker-fill: @man-made-icon;
-      marker-clip: false;
-    }
-  }
-
-  [feature = 'man_made_telescope']["telescope:type" != 'optical']["telescope:type" != null] {
-    [zoom >= 14]["telescope:diameter" >= 60],
-    [zoom >= 15]["telescope:diameter" >= 30],
-    [zoom >= 16] {
-      marker-file: url('symbols/man_made/telescope_dish.svg');
-      marker-fill: @man-made-icon;
-      marker-clip: false;
-    }
-  }
-
-  [feature = 'man_made_telescope']["telescope:type" = 'optical'],
-  [feature = 'man_made_telescope']["telescope:type" = null], {
-    [zoom >= 14]["telescope:diameter" >= 8],
-    [zoom >= 15]["telescope:diameter" >= 4],
-    [zoom >= 16]["telescope:diameter" >= 2],
-    [zoom >= 17] {
-      marker-file: url('symbols/man_made/telescope_dome.svg');
-      marker-fill: @man-made-icon;
-      marker-clip: false;
-    }
-  }
 
   [feature = 'historic_city_gate'][zoom >= 17] {
     marker-file: url('symbols/historic/city_gate.svg');
@@ -615,13 +495,6 @@
   [feature = 'amenity_veterinary'][zoom >= 17] {
     marker-file: url('symbols/amenity/veterinary.svg');
     marker-fill: @health-color;
-    marker-clip: false;
-  }
-
-  [feature = 'man_made_storage_tank'][zoom >= 18],
-  [feature = 'man_made_silo'][zoom >= 18] {
-    marker-file: url('symbols/man_made/storage_tank.svg');
-    marker-fill: @man-made-icon;
     marker-clip: false;
   }
 
@@ -1484,16 +1357,6 @@
   [feature = 'power_generator']["generator:source" = 'wind'][zoom >= 19],
   [feature = 'historic_city_gate'][zoom >= 17],
   [feature = 'natural_cave_entrance'][zoom >= 15],
-  [feature = 'man_made_mast'][zoom >= 18],
-  [feature = 'man_made_tower'][zoom >= 17],
-  [feature = 'man_made_storage_tank'][zoom >= 18],
-  [feature = 'man_made_silo'][zoom >= 18],
-  [feature = 'man_made_communications_tower'][zoom >= 17],
-  [feature = 'man_made_telescope']["telescope:type" != 'optical']["telescope:type" != null][zoom >= 16],
-  [feature = 'man_made_telescope'][zoom >= 17],
-  [feature = 'man_made_water_tower'][zoom >= 17],
-  [feature = 'man_made_chimney'][zoom >= 17],
-  [feature = 'man_made_crane'][zoom >= 17],
   [feature = 'man_made_waste_water_plant'][zoom >= 17] {
     text-name: "[name]";
     text-size: @standard-font-size;
@@ -1502,15 +1365,7 @@
     text-fill: darken(@man-made-icon, 20%);
     [feature = 'power_generator']["generator:source" = 'wind'],
     [feature = 'historic_city_gate'],
-    [feature = 'man_made_mast'],
-    [feature = 'man_made_tower'],
-    [feature = 'man_made_communications_tower'],
-    [feature = 'man_made_telescope'],
-    [feature = 'man_made_water_tower'],
-    [feature = 'man_made_storage_tank'],
-    [feature = 'man_made_silo'],
-    [feature = 'man_made_chimney'],
-    [feature = 'man_made_crane'] {
+    [feature = 'man_made_water_tower'] {
       text-dy: 10;
     }
     [feature = 'natural_cave_entrance'] {
