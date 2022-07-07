@@ -618,43 +618,6 @@
     marker-clip: false;
   }
 
-  [feature = 'amenity_place_of_worship'][zoom >= 16] {
-    marker-file: url('symbols/amenity/place_of_worship.svg');
-    marker-fill: @religious-icon;
-    marker-clip: false;
-    [religion = 'christian'] {
-      marker-file: url('symbols/religion/christian.svg');
-      // Some Christian denominations do not use a cross, so reset them to the default marker
-      [denomination = 'jehovahs_witness'],
-      [denomination = 'la_luz_del_mundo'],
-      [denomination = 'iglesia_ni_cristo'],
-      [denomination = 'mormon'] {
-        marker-file: url('symbols/amenity/place_of_worship.svg');
-      }
-    }
-    [religion = 'muslim'] {
-      marker-file: url('symbols/religion/muslim.svg');
-    }
-    [religion = 'sikh'] {
-      marker-file: url('symbols/religion/sikhist.svg');
-    }
-    [religion = 'jewish'] {
-      marker-file: url('symbols/religion/jewish.svg');
-    }
-    [religion = 'hindu'] {
-      marker-file: url('symbols/religion/hinduist.svg');
-    }
-    [religion = 'buddhist'] {
-      marker-file: url('symbols/religion/buddhist.svg');
-    }
-    [religion = 'shinto'] {
-      marker-file: url('symbols/religion/shintoist.svg');
-    }
-    [religion = 'taoist'] {
-      marker-file: url('symbols/religion/taoist.svg');
-    }
-  }
-
   [feature = 'man_made_storage_tank'][zoom >= 18],
   [feature = 'man_made_silo'][zoom >= 18] {
     marker-file: url('symbols/man_made/storage_tank.svg');
@@ -1131,19 +1094,6 @@
 }
 
 #amenity-low-priority {
-  [feature = 'man_made_cross'][zoom >= 16],
-  [feature = 'historic_wayside_cross'][zoom >= 16] {
-    marker-file: url('symbols/man_made/cross.svg');
-    marker-fill: @religious-icon;
-    marker-clip: false;
-  }
-
-  [feature = 'historic_wayside_shrine'][zoom >= 17] {
-    marker-file: url('symbols/historic/shrine.svg');
-    marker-fill: @man-made-icon;
-    marker-clip: false;
-  }
-
   [feature = 'railway_level_crossing'][zoom >= 14]::railway,
   [feature = 'railway_crossing'][zoom >= 15]::railway{
     marker-file: url('symbols/barrier/level_crossing.svg');
@@ -1466,19 +1416,6 @@
       text-opacity: @private-opacity;
       text-halo-radius: 0;
     }
-  }
-
-  [feature = 'amenity_place_of_worship'][zoom >= 16][way_pixels > 3000],
-  [feature = 'amenity_place_of_worship'][zoom >= 17] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: #000033;
-    text-dy: 12;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
   }
 
   [feature = 'natural_peak'][zoom >= 13],
@@ -2488,23 +2425,6 @@
     text-wrap-width: @standard-wrap-width;
     text-line-spacing: @standard-line-spacing-size;
     text-fill: @amenity-brown;
-    text-face-name: @standard-font;
-    text-halo-radius: @standard-halo-radius;
-    text-halo-fill: @standard-halo-fill;
-  }
-}
-
-#text-low-priority {
-  [feature = 'man_made_cross'][zoom >= 17],
-  [feature = 'historic_wayside_cross'][zoom >= 17],
-  [feature = 'historic_wayside_shrine'][zoom >= 17] {
-    text-name: "[name]";
-    text-size: @standard-font-size;
-    text-wrap-width: @standard-wrap-width;
-    text-line-spacing: @standard-line-spacing-size;
-    text-fill: darken(@man-made-icon, 20%);
-    text-dy: 6;
-      [feature = 'historic_wayside_shrine'] { text-dy: 10; }
     text-face-name: @standard-font;
     text-halo-radius: @standard-halo-radius;
     text-halo-fill: @standard-halo-fill;
