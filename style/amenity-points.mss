@@ -862,26 +862,6 @@
       marker-clip: false;
   }
 
-  // office points
-  [feature = 'office'][zoom >= 18] {
-    marker-width: 6;
-    marker-line-width: 0;
-    marker-clip: false;
-    marker-fill: @office;
-  }
-
-  [feature = 'diplomatic_embassy'][zoom >= 17] {
-    marker-file: url('symbols/office/embassy.svg');
-    marker-fill: @office;
-    marker-clip: false;
-  }
-
-  [feature = 'diplomatic_consulate'][zoom >= 17] {
-    marker-file: url('symbols/office/consulate.svg');
-    marker-fill: @office;
-    marker-clip: false;
-  }
-
   [feature = 'leisure_water_park'][zoom >= 17],
   [feature = 'leisure_sports_centre'][sport = 'swimming'][zoom >= 17],
   [feature = 'leisure_swimming_area'][zoom >= 17] {
@@ -2234,86 +2214,6 @@
       text-line-spacing: @standard-line-spacing-size;
       text-dy: 8;
       text-fill: @shop-text;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: rgba(255, 255, 255, 0.6);
-    }
-  }
-
-  [feature = 'office'] {
-    [zoom >= 18] {
-      [office = 'accountant'],
-      [office = 'adoption_agency'],
-      [office = 'advertising_agency'],
-      [office = 'architect'],
-      [office = 'association'],
-      [office = 'charity'],
-      [office = 'company'],
-      [office = 'educational_institution'],
-      [office = 'diplomatic'],
-      [office = 'employment_agency'],
-      [office = 'energy_supplier'],
-      [office = 'estate_agent'],
-      [office = 'financial'],
-      [office = 'forestry'],
-      [office = 'foundation'],
-      [office = 'government'],
-      [office = 'guide'],
-      [office = 'insurance'],
-      [office = 'it'],
-      [office = 'lawyer'],
-      [office = 'logistics'],
-      [office = 'moving_company'],
-      [office = 'newspaper'],
-      [office = 'ngo'],
-      [office = 'notary'],
-      [office = 'political_party'],
-      [office = 'private_investigator'],
-      [office = 'property_management'],
-      [office = 'quango'],
-      [office = 'religion'],
-      [office = 'research'],
-      [office = 'surveyor'],
-      [office = 'tax'],
-      [office = 'tax_advisor'],
-      [office = 'telecommunication'],
-      [office = 'travel_agent'],
-      [office = 'water_utility'] {
-        text-name: "[name]";
-        text-size: @standard-font-size;
-        text-wrap-width: @standard-wrap-width;
-        text-line-spacing: @standard-line-spacing-size;
-        text-dy: 8;
-        text-fill: @office;
-        text-face-name: @standard-font;
-        text-halo-radius: @standard-halo-radius;
-        text-halo-fill: rgba(255, 255, 255, 0.6);
-      }
-    }
-
-    // all other offices
-    [zoom >= 19] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-dy: 8;
-      text-fill: @office;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: rgba(255, 255, 255, 0.6);
-    }
-  }
-
-  [feature = 'diplomatic_embassy'],
-  [feature = 'diplomatic_consulate'] {
-    [zoom >= 17] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-dy: 10;
-      text-fill: @office;
       text-face-name: @standard-font;
       text-halo-radius: @standard-halo-radius;
       text-halo-fill: rgba(255, 255, 255, 0.6);
