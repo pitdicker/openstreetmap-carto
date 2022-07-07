@@ -1583,30 +1583,6 @@
     text-face-name: @standard-font;
   }
 
-  [feature = 'amenity_parking'],
-  [feature = 'amenity_bicycle_parking'],
-  [feature = 'amenity_motorcycle_parking'],
-  [feature = 'amenity_parking_entrance']["parking"='underground'] {
-    [zoom >= 14][way_pixels > 3000],
-    [zoom >= 18] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: @transportation-text;
-      text-dy: 9;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-      [int_access = 'restricted'] {
-        text-opacity: @private-opacity;
-        text-halo-radius: 0;
-      }
-      [feature = 'amenity_bicycle_parking'],
-      [feature = 'amenity_motorcycle_parking'] { text-dy: 12; }
-    }
-  }
-
   [feature = 'amenity_parcel_locker'][zoom >= 18] {
     text-name: "[name]";
     text-dy: 10;
