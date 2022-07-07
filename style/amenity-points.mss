@@ -20,6 +20,7 @@
 @barrier-icon: #3f3f3f;
 @landform-color: #d08f55;
 @leisure-green: darken(@park, 60%);
+@leisure-blue: @transportation-icon;
 @protected-area: #008000;
 @aboriginal: #82643a;
 @religious-icon: #000000;
@@ -64,12 +65,6 @@
   }
 
   [feature = 'highway_bus_stop'] {
-    [zoom >= 16][zoom < 17] {
-      marker-file: url('symbols/square.svg');
-      marker-fill: @transportation-icon;
-      marker-width: 6;
-      marker-clip: false;
-    }
     [zoom >= 17] {
       marker-file: url('symbols/highway/bus_stop.svg');
       marker-fill: @transportation-icon;
@@ -179,7 +174,7 @@
     }
   }
 
-  [feature = 'amenity_library'][zoom >= 16] {
+  [feature = 'amenity_library'][zoom >= 17] {
     marker-file: url('symbols/amenity/library.svg');
     marker-fill: @culture;
     marker-clip: false;
@@ -210,13 +205,13 @@
     marker-clip: false;
   }
 
-  [feature = 'tourism_museum'][zoom >= 16] {
+  [feature = 'tourism_museum'][zoom >= 17] {
     marker-file: url('symbols/tourism/museum.svg');
     marker-fill: @culture;
     marker-clip: false;
   }
 
-  [feature = 'amenity_hospital'][zoom >= 15] {
+  [feature = 'amenity_hospital'][zoom >= 17] {
     marker-file: url('symbols/amenity/hospital.svg');
     marker-fill: @health-color;
     marker-clip: false;
@@ -234,7 +229,7 @@
     marker-clip: false;
   }
 
-  [feature = 'amenity_post_box'][zoom >= 18] {
+  [feature = 'amenity_post_box'][zoom >= 17] {
     marker-file: url('symbols/amenity/post_box.svg');
     marker-fill: @amenity-brown;
     marker-clip: false;
@@ -246,7 +241,7 @@
     marker-clip: false;
   }
 
-  [feature = 'amenity_recycling'][recycling_type = 'centre'][zoom >= 17],
+  [feature = 'amenity_recycling'][recycling_type = 'centre'][zoom >= 16],
   [feature = 'amenity_recycling'][zoom >= 19] {
     marker-file: url('symbols/amenity/recycling.svg');
     marker-fill: @amenity-brown;
@@ -274,7 +269,7 @@
     marker-clip: false;
   }
 
-  [feature = 'man_made_water_tower'][zoom >= 17] {
+  [feature = 'man_made_water_tower'][zoom >= 16] {
     marker-file: url('symbols/man_made/water_tower.svg');
     marker-fill: @man-made-icon;
     marker-clip: false;
@@ -312,7 +307,7 @@
     marker-clip: false;
   }
 
-  [feature = 'historic_monument'][zoom >= 16] {
+  [feature = 'historic_monument'][zoom >= 17] {
     marker-file: url('symbols/historic/monument.svg');
     marker-fill: @memorials;
     marker-clip: false;
@@ -364,7 +359,7 @@
   [feature = 'leisure_sports_centre'][sport = 'swimming'][zoom >= 17],
   [feature = 'leisure_swimming_area'][zoom >= 17] {
     marker-file: url('symbols/leisure/water_park.svg');
-    marker-fill: @leisure-green;
+    marker-fill: @leisure-blue;
     marker-clip: false;
   }
 
@@ -383,7 +378,7 @@
     }
   }
 
-  [feature = 'leisure_miniature_golf'][zoom >= 17] {
+  [feature = 'leisure_miniature_golf'][zoom >= 16] {
     marker-file: url('symbols/leisure/miniature_golf.svg');
     marker-fill: @leisure-green;
     marker-clip: false;
@@ -434,7 +429,7 @@
      marker-clip: false;
    }
 
-  [feature = 'amenity_ferry_terminal'][zoom >= 15] {
+  [feature = 'amenity_ferry_terminal'][zoom >= 16] {
     marker-file: url('symbols/amenity/ferry.svg');
     marker-clip: false;
     marker-fill: @airtransport;
@@ -536,10 +531,6 @@
     [zoom >= 17][feature = 'amenity_parking']["parking" != 'street_side']["parking" != 'lane'],
     [zoom >= 18] {
       [feature = 'amenity_parking'] { marker-file: url('symbols/amenity/parking.svg'); }
-      [feature = 'amenity_parking']["parking" = 'street_side'],
-      [feature = 'amenity_parking']["parking" = 'lane'] { 
-        marker-file: url('symbols/amenity/parking_subtle.svg'); 
-      }
       [feature = 'amenity_bicycle_parking'] { marker-file: url('symbols/amenity/bicycle_parking.svg'); }
       [feature = 'amenity_motorcycle_parking'] { marker-file: url('symbols/amenity/motorcycle_parking.svg'); }
       [feature = 'amenity_parking_entrance']["parking"='underground'] { marker-file: url('symbols/amenity/parking_entrance_underground.svg'); }
@@ -552,14 +543,9 @@
 }
 
 #amenity-low-priority {
-  [feature = 'railway_level_crossing'][zoom >= 14]::railway,
-  [feature = 'railway_crossing'][zoom >= 15]::railway{
-    marker-file: url('symbols/barrier/level_crossing.svg');
-    marker-fill: #4d4d4d;
-    marker-clip: false;
-    [zoom >= 16] {
-      marker-file: url('symbols/barrier/level_crossing2.svg');
-    }
+  [feature = 'railway_level_crossing'][zoom >= 17]::railway,
+  [feature = 'railway_crossing'][zoom >= 17]::railway{
+    marker-file: url('symbols/barrier/level_crossing2.svg');
   }
 
   [feature = 'barrier_gate']::barrier {
@@ -627,7 +613,7 @@
     }
   }
 
-  [feature = 'amenity_bench'][zoom >= 19]::amenity {
+  [feature = 'amenity_bench'][zoom >= 17]::amenity {
     marker-file: url('symbols/amenity/bench.svg');
     marker-fill: @man-made-icon;
     [int_access = 'restricted'] {
@@ -762,11 +748,8 @@
   [feature = 'amenity_courthouse'][zoom >= 17],
   [feature = 'amenity_townhall'][zoom >= 17],
   [feature = 'amenity_police'][zoom >= 17],
-  [feature = 'amenity_social_facility'][zoom >= 17],
   [feature = 'amenity_fire_station'][zoom >= 17],
-  [feature = 'amenity_post_office'][zoom >= 17],
-  [feature = 'amenity_prison'][zoom >= 17],
-  [feature = 'amenity_bank'][zoom >= 17] {
+  [feature = 'amenity_prison'][zoom >= 17] {
     text-name: "[name]";
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
@@ -1550,7 +1533,7 @@
     }
   }
 
-  [feature = 'amenity_ferry_terminal'][zoom >= 15] {
+  [feature = 'amenity_ferry_terminal'][zoom >= 16] {
     text-name: "[name]";
     text-size: @standard-font-size;
     text-wrap-width: @standard-wrap-width;
