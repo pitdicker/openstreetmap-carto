@@ -216,39 +216,8 @@
     marker-clip: false;
   }
 
-  [feature = 'amenity_clinic'][zoom >= 17],
-  [feature = 'amenity_doctors'][zoom >= 17] {
-    marker-file: url('symbols/amenity/doctors.svg');
-    marker-fill: @health-color;
-    marker-clip: false;
-  }
-
-  [feature = 'amenity_dentist'][zoom >= 17] {
-    [zoom >= 17][zoom < 18] {
-      marker-width: 4;
-      marker-line-width: 0;
-    }
-    [zoom >= 18] {
-      marker-file: url('symbols/amenity/dentist.svg');
-    }
-    marker-fill: @health-color;
-    marker-clip: false;
-  }
-
   [feature = 'amenity_hospital'][zoom >= 15] {
     marker-file: url('symbols/amenity/hospital.svg');
-    marker-fill: @health-color;
-    marker-clip: false;
-  }
-
-  [feature = 'amenity_pharmacy'][zoom >= 17] {
-    marker-file: url('symbols/amenity/pharmacy.svg');
-    marker-fill: @health-color;
-    marker-clip: false;
-  }
-
-  [feature = 'amenity_veterinary'][zoom >= 17] {
-    marker-file: url('symbols/amenity/veterinary.svg');
     marker-fill: @health-color;
     marker-clip: false;
   }
@@ -297,19 +266,6 @@
     marker-file: url('symbols/amenity/prison.svg');
     marker-fill: @public-service;
     marker-clip: false;
-  }
-
-  [feature = 'amenity_nursing_home'],
-  [feature = 'amenity_childcare'] {
-    [zoom >= 17] {
-      marker-width: 4;
-      [zoom >= 18] {
-        marker-width: 6;
-      }
-      marker-line-width: 0;
-      marker-clip: false;
-      marker-fill: darken(@societal_amenities, 80%);
-    }
   }
 
   [feature = 'tourism_viewpoint'][zoom >= 16] {
@@ -1418,53 +1374,6 @@
     text-halo-fill: @standard-halo-fill;
   }
 
-
-  [feature = 'amenity_clinic'],
-  [feature = 'amenity_pharmacy'],
-  [feature = 'amenity_doctors'],
-  [feature = 'amenity_dentist'],
-  [feature = 'amenity_veterinary'] {
-    [zoom >= 17] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-dy: 12;
-      text-fill: @health-color;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-    }
-  }
-
-  [feature = 'amenity_nursing_home'],
-  [feature = 'amenity_childcare'] {
-    [zoom >= 18] {
-      text-name: "[name]";
-      text-size: @landcover-font-size;
-      text-wrap-width: @landcover-wrap-width-size;
-      text-line-spacing: @landcover-line-spacing-size;
-      text-face-name: @landcover-face-name;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-      text-dy: 8;
-      text-fill: darken(@societal_amenities, 80%);
-    }
-  }
-
-  [feature = 'amenity_driving_school'] {
-    [zoom >= 18] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-dy: 8;
-      text-fill: @shop-text;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: rgba(255, 255, 255, 0.6);
-    }
-  }
 
   [feature = 'aeroway_gate'][zoom >= 17] {
     text-name: "[ref]";
