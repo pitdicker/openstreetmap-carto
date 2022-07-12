@@ -1257,29 +1257,6 @@
     }
   }
 
-
-  [feature = 'highway_bus_stop'],
-  [feature = 'amenity_bus_station'] {
-    [zoom >= 17] {
-      text-name: "[name]";
-      text-size: @standard-font-size;
-      text-wrap-width: @standard-wrap-width;
-      text-line-spacing: @standard-line-spacing-size;
-      text-fill: @transportation-text;
-      text-dy: 11;
-      text-face-name: @standard-font;
-      text-halo-radius: @standard-halo-radius;
-      text-halo-fill: @standard-halo-fill;
-      [feature = 'highway_bus_stop'] {
-        text-dy: 9;
-      }
-      [int_access = 'restricted'] {
-        text-opacity: @private-opacity;
-        text-halo-radius: 0;
-      }
-    }
-  }
-
   [feature = 'leisure_marina'][zoom >= 15] {
     [zoom >= 10][way_pixels > 3000],
     [zoom >= 17] {
